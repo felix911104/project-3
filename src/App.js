@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NavTabs from "./components/NavTabs";
-import Home from "./components/pages/Home";
-import Preferences from "./components/pages/Preferences";
-import Food from "./components/pages/Food";
+import NavTabs from "./components/Navbar/index";
+import Home from "./components/pages/Home/index";
+import Preferences from "./components/pages/Preferences/index";
+import Food from "./components/pages/Food/index";
 
 function App() {
   return (
