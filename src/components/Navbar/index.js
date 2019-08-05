@@ -25,6 +25,22 @@ function NavTabs() {
           Food
         </Link>
       </li>
+      <li className="nav-item">
+        <Link
+          to="/signin"
+          className={window.location.pathname === "/signin" ? "nav-link active" : "nav-link"}
+        >
+          Sign In
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link
+          to="/signup"
+          className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}
+        >
+          Sign Up
+        </Link>
+      </li>
     </ul>
   );
 }
