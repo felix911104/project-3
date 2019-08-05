@@ -4,6 +4,8 @@ import NavTabs from "./components/Navbar/index";
 import Home from "./components/pages/Home/index";
 import Preferences from "./components/pages/Preferences/index";
 import Food from "./components/pages/Food/index";
+import SignIn from "./components/pages/SignIn/index";
+import SignUp from "./components/pages/SignUp/index";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/preferences" component={Preferences} />
         <Route exact path="/food" component={Food} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/signup" component={SignUp} />
       </div>
     </Router>
   );
