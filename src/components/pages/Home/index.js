@@ -1,8 +1,9 @@
 import React from "react";
-
+import Jumbotron from "../../Jumbotron/index";
 function Home() {
   return (
     <div>
+    <Jumbotron />
       <h1>Home Page</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna

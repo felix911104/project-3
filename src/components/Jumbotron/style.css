@@ -1,0 +1,8 @@
+.jumbotron {
+    background-image: url("./seattle-skyline-at-night-washington-usa_vjmcf0jxkx__F0000 copy.png");
+    height:200px;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    /* overflow: hidden; */
+    object-fit: contain;
+}
