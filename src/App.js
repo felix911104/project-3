@@ -1,10 +1,12 @@
 import React from 'react';
+import SignUpContainer from "./components/SignUpContainer"
 
 
 
 function App() {
-    return(
- <h1>Hello World</h1>
+    return (
+      
+        <SignUpContainer />
     )
 }
 
