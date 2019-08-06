@@ -6,10 +6,12 @@ import Preferences from "./components/pages/Preferences/index";
 import Food from "./components/pages/Food/index";
 import SignIn from "./components/pages/SignIn/index";
 import SignUp from "./components/pages/SignUp/index";
+import SignUpContainer from "./components/SignUpContainer"
 // import "../src/components/pages/style.css"
 
 function App() {
   return (
+    // <SignUpContainer />
     <Router>
       <div>
         <NavTabs />
