@@ -79,13 +79,6 @@ class SignUpContainer extends Component {
 
     };
 
-    cancelCourse = () => {
-        this.setState({
-            name: "",
-            password: ""
-        })
-    }
-
 
     render() {
         return (
