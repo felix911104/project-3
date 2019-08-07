@@ -1,21 +1,30 @@
 import React from "react";
+import "./style.css";
 
-function SignUp() {
-  return (
+function SignUp(){
+    
+  return(
     <div>
-      <h1>Sign up</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
-        varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.
-        Etiam ut feugiat ex. Cras non risus mi. Curabitur mattis rutrum ipsum, ut aliquet urna
-        imperdiet ac. Sed nec nulla aliquam, bibendum odio eget, vestibulum tortor. Cras rutrum
-        ligula in tincidunt commodo. Morbi sit amet mollis orci, in tristique ex. Donec nec ornare
-        elit. Donec blandit est sed risus feugiat porttitor. Vestibulum molestie hendrerit massa non
-        consequat. Vestibulum vitae lorem tortor. In elementum ultricies tempus. Interdum et
-        malesuada fames ac ante ipsum primis in faucibus.
-      </p>
+    <div className="container">
+  <div className="main">
+    <div className="logo">
+      <h1>S</h1>
     </div>
-  );
-}
+    <form action="/">
+      <input type="text" placeholder="User Name" autoComplete="off" required />	<i className="fa fa-user" />
+      <input type="password" placeholder="password" autoComplete="off" required />	<i className="fa fa-lock" />
+      <input type="submit" defaultValue="Log In" />
+      <h4>Already have an account?<a href="/login"> Go Login!</a></h4>
+    </form>
+  </div>
+</div>
 
+
+  
+  
+</div>
+
+
+    )
+}
 export default SignUp;
