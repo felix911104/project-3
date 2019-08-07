@@ -32,7 +32,7 @@ function Jumbotron() {
             >
               Shelt<strong style={{ fontWeight: 600 }}>R</strong>
             </h1>
-            <p className="lead string-1 text-center">lalala</p>
+            <p className="lead string-1 text-center"></p>
           </div>
         </div>
       </div>

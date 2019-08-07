@@ -1,10 +1,13 @@
 import React from "react";
 import "./style.css";
+import NavTabs from "../../Navbar";
 
 function LogIn(){
     
   return(
+    
     <div>
+      <NavTabs/>
     <div className="container">
   <div className="main">
     <div className="logo">
