@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function SignUp(){
+function LogIn(){
     
   return(
     <div>
@@ -11,10 +11,10 @@ function SignUp(){
       <h1>S</h1>
     </div>
     <form action="/">
-      <input type="text" placeholder="User Name" autoComplete="off" required />	<i className="fa fa-user" />
+      <input type="text" placeholder="email" autoComplete="off" required />	<i className="fa fa-user" />
       <input type="password" placeholder="password" autoComplete="off" required />	<i className="fa fa-lock" />
       <input type="submit" defaultValue="Log In" />
-      <h4>Already have an account?<a href="/login"> Go Login!</a></h4>
+      <h4>Not Registered?<a href="/signup"> Create an Account</a></h4>
     </form>
   </div>
 </div>
@@ -27,4 +27,4 @@ function SignUp(){
 
     )
 }
-export default SignUp;
+export default LogIn;
