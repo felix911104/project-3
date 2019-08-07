@@ -16,14 +16,15 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MiniCard from '../MiniCard/index';
-import { minHeight } from '@material-ui/system';
+import { minHeight, fontWeight } from '@material-ui/system';
 import Background from '../ClinicCard/clinic.jpg'
 const useStyles = makeStyles(theme => ({
     card: {
         textAlign: "center",
         backgroundColor: "#1d1d1d",
-        color: "#9d9d9d",
+        color: "black",
         backgroundImage: `url(${Background})`,
+        fontSize: "50px",
 
     },
     media: {
@@ -42,14 +43,16 @@ const useStyles = makeStyles(theme => ({
         transform: 'rotate(180deg)',
         color: "white"
     },
-    avatar: {
-        backgroundColor: red[500],
-    },
     cardwrapper: {
         width: '80vp',
         height: '20vp',
         margin: '20px'
     },
+    CardHeader: {
+        fontSize: "80px",
+        fontWeight: "bolder",
+    }
+
 }));
 
 export default function RecipeReviewCard() {
@@ -63,18 +66,9 @@ export default function RecipeReviewCard() {
     return (
         <div className={classes.cardwrapper}>
             <Card className={classes.card}>
-                <CardHeader
-                    avatar={
-                        <Avatar aria-label="recipe" className={classes.avatar}>
-                            Food
-          </Avatar>
-                    }
-                    action={
-                        <IconButton aria-label="settings">
-                            <MoreVertIcon />
-                        </IconButton>
-                    }
-                    title="Shrimp and Chorizo Paella"
+                <CardHeader 
+                
+                    title="Clinics"
                     subheader=""
                 />
                 {/* <CardMedia
@@ -83,13 +77,11 @@ export default function RecipeReviewCard() {
                     title="Paella dish"
                 /> */}
                 <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p" color="#9d9d9d">
-                        This impressive paella is a perfect party dish and a fun meal to cook together with your
-                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
-        </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p" color="#9d9d9d" fontSize='30'>
+                    </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                   
+
                     <IconButton
                         className={clsx(classes.expand, {
                             [classes.expandOpen]: expanded,
@@ -103,18 +95,11 @@ export default function RecipeReviewCard() {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph></Typography>
-                        <Typography paragraph>
                         <MiniCard />
-          </Typography>
-                        <Typography paragraph>
+                        <br></br>
                         <MiniCard />
-          </Typography>
-                        <Typography paragraph>
+                        <br></br>
                         <MiniCard />
-          </Typography>
-                        <Typography>
-          </Typography>
                     </CardContent>
                 </Collapse>
             </Card>
