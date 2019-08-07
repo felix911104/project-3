@@ -1,21 +1,11 @@
 import React from "react";
 import "./style.css";
-<<<<<<< HEAD
 import NavTabs from "../../Navbar";
-function SignUp(){
-    
-  return(
-    <div>
-      <NavTabs/>
-    <div className="container">
-  <div className="main">
-    <div className="logo">
-      <h1>S</h1>
-=======
 
 function SignUp() {
   return (
     <div>
+      <NavTabs/>
       <div className="container">
         <div className="main">
           <div className="logo">
@@ -43,7 +33,6 @@ function SignUp() {
           </form>
         </div>
       </div>
->>>>>>> faabc99f062fb9b3cf36305ceb442028587e99e8
     </div>
   );
 }
