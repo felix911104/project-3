@@ -28,27 +28,25 @@ class Food extends Component {
     return (
       <div>
         <h1>Food</h1>
-        <Card title="food" icon="download">
           {this.state.food.length ? (
-            <List>
-              {this.state.food.map(food => (
-                <p>{food.day_time}
-                {food.meal_served}
-                {food.people_served}
-                {food.location}
-                {food.name_of_program}
-
-                </p>
+            <div>
+              {this.state.food.map((food,index) => (
+          <Card title={index+1} icon="download">
+                <p>time: {food.day_time}</p>
+                <p>meal served: {food.meal_served}</p>
+                <p>people: {food.people_served}</p>
+                <p>locaton: {food.location}</p>
+                <p>program name: {food.name_of_program}</p>
+        </Card>
               
               ))}
              
+             </div>
 
-
-            </List>
+          
           ) : (
               <h2 className="text-center">No food</h2>
             )}
-        </Card>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
           varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.
