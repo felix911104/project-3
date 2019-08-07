@@ -19,7 +19,7 @@ import SignInContainer from "./components/SignInContainer"
 function App() {
   return (
    
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div>
         {/* <NavTabs /> */}
         <Route exact path="/" component={Home} />
