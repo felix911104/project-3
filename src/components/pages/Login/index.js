@@ -11,7 +11,7 @@ function LogIn(){
     <div className="container">
   <div className="main">
     <div className="logo">
-      <h1>S</h1>
+      <h1>L</h1>
     </div>
     <form action="/">
       <input type="text" placeholder="User Name" autoComplete="off" required />	<i className="fa fa-user" />
