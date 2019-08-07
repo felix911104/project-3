@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@material-ui/core": "^4.3.1",
     "@material-ui/icons": "^4.2.1",
+=======
+    "axios": "^0.19.0",
+>>>>>>> f58aa9b017318bcd31e93faa115bccc09f50284c
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
