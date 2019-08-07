@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     card: {
         textAlign: "center",
         backgroundColor: "#1d1d1d",
-        color: "#9d9d9d",
+        color: "black",
         backgroundImage: `url(${Background})`,
     },
     media: {
@@ -62,18 +62,9 @@ export default function RecipeReviewCard() {
     return (
         <div className={classes.cardwrapper}>
             <Card className={classes.card}>
-                <CardHeader
-                    avatar={
-                        <Avatar aria-label="recipe" className={classes.avatar}>
-                            Food
-          </Avatar>
-                    }
-                    action={
-                        <IconButton aria-label="settings">
-                            <MoreVertIcon />
-                        </IconButton>
-                    }
-                    title="Shrimp and Chorizo Paella"
+                <CardHeader 
+                
+                    title="Shelters"
                     subheader=""
                 />
                 {/* <CardMedia
@@ -82,38 +73,29 @@ export default function RecipeReviewCard() {
                     title="Paella dish"
                 /> */}
                 <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p" color="#9d9d9d">
-                        This impressive paella is a perfect party dish and a fun meal to cook together with your
-                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
-        </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p" color="#9d9d9d" fontSize='30'>
+                    </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                   
+
                     <IconButton
                         className={clsx(classes.expand, {
                             [classes.expandOpen]: expanded,
                         })}
                         onClick={handleExpandClick}
                         aria-expanded={expanded}
-                        aria-label="show more" color="#9d9d9d"
+                        aria-label="show more"
                     >
                         <ExpandMoreIcon />
                     </IconButton>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph></Typography>
-                        <Typography paragraph>
                         <MiniCard />
-          </Typography>
-                        <Typography paragraph>
+                        <br></br>
                         <MiniCard />
-          </Typography>
-                        <Typography paragraph>
+                        <br></br>
                         <MiniCard />
-          </Typography>
-                        <Typography>
-          </Typography>
                     </CardContent>
                 </Collapse>
             </Card>
