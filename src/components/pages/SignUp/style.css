@@ -34,8 +34,8 @@ body {
 	-webkit-box-shadow: 0 0 100px white;
 	        box-shadow: 0 0 100px white;
 	background: #1d1d1d;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #2D73CB, #1d1d1d);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #2D73CB, #1d1d1d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to right, #F05D18, #1d1d1d);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #F05D18, #1d1d1d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 .logo:hover {
@@ -100,8 +100,8 @@ input[type='submit'] {
 	-webkit-box-shadow: 0 0 10px white;
 	        box-shadow: 0 0 10px white;
 	background: #1d1d1d;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #2D73CB, #1d1d1d);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #2D73CB, #1d1d1d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to right, #F05D18, #1d1d1d);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #F05D18, #1d1d1d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 input[type='submit']:hover {
 	width: 155px;
@@ -153,18 +153,7 @@ input[type='submit']:hover {
 }
  
 
-/*  FOLLOW*/
-.Follow {	  background:url("https://pbs.twimg.com/profile_images/959092900708544512/v4Db9QRv_bigger.jpg")no-repeat center / contain;
-	width: 50px;
-	height: 50px;
-	bottom: 9px;
-	right: 20px;
-	display:block;
-	position:fixed;
-	border-radius:50%;
-	z-index:999;
-	animation:  rotation 10s infinite linear;
-	}
+
 
 @-webkit-keyframes rotation {
 		from {
