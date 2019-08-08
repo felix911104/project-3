@@ -18,7 +18,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MiniCard from '../MiniCard/index';
 import { minHeight, fontWeight } from '@material-ui/system';
 import Background from '../ClinicCard/clinic.jpg'
-import Clinic from "../pages/Clinic"
+// import Clinic from "../pages/Clinic"
+import MiniClinicCard from '../MiniCardClinic/index'
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -70,7 +71,7 @@ export default function RecipeReviewCard() {
             <Card className={classes.card}>
                 <CardHeader 
                 
-                    title="Clinics"
+                    title="Our Mission"
                     subheader=""
                 />
                 {/* <CardMedia
@@ -98,7 +99,7 @@ export default function RecipeReviewCard() {
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
                         
-                        <Clinic />
+                        < MiniClinicCard/>
                 
                     </CardContent>
                 </Collapse>
