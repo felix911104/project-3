@@ -19,6 +19,7 @@ function App() {
       <div>
         {/* <NavTabs /> */}
         <Route exact path="/" component={Home} />
+<<<<<<< HEAD
         <Route exact path="/preferences" component={Preferences} />
         <Route exact path="/food" component={Food} />
         <Route exact path="/clinics" component={Clinics} />
@@ -26,6 +27,13 @@ function App() {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={LogIn} />
 
+=======
+        <Route path="/preferences" component={Preferences} />
+        <Route path="/food" component={Food} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/login" component={LogIn} />
+ 
+>>>>>>> 6f6e0a63d1c90a2a671f6a965facdf03770a3b55
       </div>
     </Router>
   );
