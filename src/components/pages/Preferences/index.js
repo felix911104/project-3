@@ -30,7 +30,7 @@ class Preferences extends Component {
 render() {
   return (
     <div>
-      <NavTabs/>
+    
       <h1>Preferences</h1>
 {this.state.food.length ? (
   <div>
