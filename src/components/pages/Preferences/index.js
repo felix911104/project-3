@@ -1,8 +1,9 @@
 import React from "react";
-
+import NavTabs from "../../Navbar";
 function Preferences() {
   return (
     <div>
+      <NavTabs/>
       <h1>Preferences</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna

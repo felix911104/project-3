@@ -3,46 +3,19 @@ import { Link } from "react-router-dom";
 import "./style.css";
 function NavTabs() {
   return (
-    <ul className="nav nav-tabs">
-      <li className="nav-item">
-        <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
-          Home
+    <div className="btn-group jumbotron-fluid">
+        <Link to="/">
+          <button className="btn btn-outline-primary">Home</button>
         </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/preferences"
-          className={window.location.pathname === "/preferences" ? "nav-link active" : "nav-link"}
-        >
-          Preferences
+        <Link to="/preferences">
+          <button className="btn btn-outline-primary">Preferences</button>
         </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/food"
-          className={window.location.pathname === "/food" ? "nav-link active" : "nav-link"}
-        >
-          Food
+        <Link to="/food">
+          <button className="btn btn-outline-primary">Food</button>
         </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/login"
-          className={window.location.pathname === "/login" ? "nav-link active" : "nav-link"}
-        >
-          Log-In
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/signup"
-          className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}
-        >
-          Sign Up
-        </Link>
-      </li>
-    </ul>
+      </div>
   );
+ 
 }
 
 export default NavTabs;
