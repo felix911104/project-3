@@ -2,7 +2,7 @@
   "name": "sheltr",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://felix911104.github.io/project-3",
+  "homepage": "https://felix911104.github.io/project-3/",
   "dependencies": {
     "@material-ui/core": "^4.3.1",
     "@material-ui/icons": "^4.2.1",
