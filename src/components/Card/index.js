@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 function Card({ icon, title, children }) {
   return (
-    <div className="card bg-dark mt-4">
+    <div className="card mt-5">
       <div className="card-header">
         <h3>
           <strong>
