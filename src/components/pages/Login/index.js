@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./style.css";
 import axios from "axios";
+import Footer from "../../Footer/index"
+import { Link } from "react-router-dom";
+
 
 class LogIn extends Component {
   constructor(props) {
@@ -59,7 +62,7 @@ class LogIn extends Component {
         <div className="container">
           <div className="main">
             <div className="logo">
-              <h1>L</h1>
+            <Link to="/"><h1>L</h1></Link>
             </div>
             <form action="/" onSubmit={this.handleFormSubmit}>
               <input type="text" title="Username" name="name" value={this.state.newUser.name} placeholder="Enter a user name" onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-user" />
@@ -69,6 +72,7 @@ class LogIn extends Component {
             </form>
           </div>
         </div>
+        <Footer/>
 
 
 
