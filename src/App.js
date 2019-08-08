@@ -17,10 +17,10 @@ function App() {
       <div>
         {/* <NavTabs /> */}
         <Route exact path="/" component={Home} />
-        <Route exact path="/preferences" component={Preferences} />
-        <Route exact path="/food" component={Food} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={LogIn} />
+        <Route path="/preferences" component={Preferences} />
+        <Route path="/food" component={Food} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/login" component={LogIn} />
  
       </div>
     </Router>
