@@ -1,14 +1,18 @@
 {
   "files": {
     "main.css": "/project-3/static/css/main.07d9f286.chunk.css",
+
     "main.js": "/project-3/static/js/main.24156d38.chunk.js",
     "main.js.map": "/project-3/static/js/main.24156d38.chunk.js.map",
+
     "runtime~main.js": "/project-3/static/js/runtime~main.6a465fa7.js",
     "runtime~main.js.map": "/project-3/static/js/runtime~main.6a465fa7.js.map",
     "static/js/2.14189556.chunk.js": "/project-3/static/js/2.14189556.chunk.js",
     "static/js/2.14189556.chunk.js.map": "/project-3/static/js/2.14189556.chunk.js.map",
     "index.html": "/project-3/index.html",
+
     "precache-manifest.8039a7f6f4563816ea011bfbc3cd6121.js": "/project-3/precache-manifest.8039a7f6f4563816ea011bfbc3cd6121.js",
+
     "service-worker.js": "/project-3/service-worker.js",
     "static/css/main.07d9f286.chunk.css.map": "/project-3/static/css/main.07d9f286.chunk.css.map",
     "static/media/style.css": "/project-3/static/media/seattle.a75f0d55.png",
