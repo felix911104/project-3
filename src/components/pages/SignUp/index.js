@@ -1,17 +1,5 @@
 import React, { Component } from "react";
 import "./style.css";
-<<<<<<< HEAD
-import NavTabs from "../../Navbar";
-
-function SignUp() {
-  return (
-    <div>
-      <NavTabs/>
-      <div className="container">
-        <div className="main">
-          <div className="logo">
-            <h1>S</h1>
-=======
 import axios from "axios";
 
 
@@ -90,7 +78,6 @@ class SignUp extends Component {
               <input action={this.handleFormSubmit} type="submit" defaultValue="Log In" />
               <h4>Already have an account?<a href="/login"> Go Login!</a></h4>
             </form>
->>>>>>> 36bc52479156e0e941442fb0cbb775971475fa41
           </div>
         </div>
 
@@ -98,14 +85,9 @@ class SignUp extends Component {
 
 
       </div>
-<<<<<<< HEAD
-    </div>
-  );
-=======
 
 
     )
   }
->>>>>>> 36bc52479156e0e941442fb0cbb775971475fa41
 }
 export default SignUp;
