@@ -18,6 +18,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MiniCard from '../MiniCard/index';
 import { minHeight, fontWeight } from '@material-ui/system';
 import Background from '../ClinicCard/clinic.jpg'
+import Clinic from "../pages/Clinic"
+
 const useStyles = makeStyles(theme => ({
     card: {
         textAlign: "center",
@@ -95,11 +97,9 @@ export default function RecipeReviewCard() {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <MiniCard />
-                        <br></br>
-                        <MiniCard />
-                        <br></br>
-                        <MiniCard />
+                        
+                        <Clinic />
+                
                     </CardContent>
                 </Collapse>
             </Card>
