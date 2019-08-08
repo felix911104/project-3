@@ -7,6 +7,8 @@ import Food from "./components/pages/Food/index";
 import NavTabs from "./components/Navbar/index";
 import SignUp from "./components/pages/SignUp/index";
 import LogIn from "./components/pages/Login/index";
+import Shelters from "./components/pages/Shelters/index";
+import Clinics from "./components/pages/Clinic/index";
 // import "../src/components/pages/style.css"
 
 
@@ -19,9 +21,11 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/preferences" component={Preferences} />
         <Route exact path="/food" component={Food} />
+        <Route exact path="/clinics" component={Clinics} />
+        <Route exact path="/shelters" component={Shelters} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={LogIn} />
- 
+
       </div>
     </Router>
   );

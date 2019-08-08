@@ -13,6 +13,12 @@ function NavTabs() {
         <Link to="/food">
           <button className="btn btn-outline-primary">Food</button>
         </Link>
+        <Link to="/shelters">
+          <button className="btn btn-outline-primary">Shelters</button>
+        </Link>
+        <Link to="/clinics">
+          <button className="btn btn-outline-primary">Clinics</button>
+        </Link>
       </div>
   );
  

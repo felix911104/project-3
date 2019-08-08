@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     // backgroundColor: "darkgray",
     // backgroundImage: "./food.jpg",
     fontColor: "black",
-    opacity: 0.7,
+    opacity: 0.9,
     hover: 1.0,
     marginBottom: "10px"
   },
@@ -44,18 +44,14 @@ export default function SimpleCard(props) {
         <Typography variant="h5" component="h2">
           {/* put props here? Look at docs for material UI-react */}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          
+        <Typography className={classes.pos} color="black">
+          Our mission at Sheltr is to provide information to those in need.  We include Low-Cost or free Food, Shelters, and Clinics who share the same goal as us.  We also aim to guide those who want to help to local charities, food banks, or other organizations that help the Seattle area.
         </Typography>
         <Typography variant="body2" component="p">
           <br />
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
-        <Button size="small">Learn More</Button>
-        <h1>{props.name}</h1>
-        <Button size="small">{props.location}</Button>
       </CardActions>
     </Card>
   );
