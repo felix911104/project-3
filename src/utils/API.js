@@ -5,6 +5,23 @@ export default {
       return axios.get("http://localhost:8080/api/food");
     },
 
+  saveFoodToDatabase: function(foodData){
+    return axios.post("http://localhost:8080/api/fooddatabase", foodData);
+  },
+
+  saveFoodToUser: function(foodData){
+    return axios.post("http://localhost:8080/api/foodtouser", foodData);
+  },
+  
+  getFoodFromDatabase: function(foodData){
+    return axios.get("http://localhost:8080/api/foodindatabase/" + foodData.foodData.location);
+  },
+  
+  getFoodByUserId: function(id){
+    return axios.get("http://localhost:8080/api/userfood/" + id);
+  }
+
+
   // // Gets books from the Google API
   // getBooks: function(q) {
   //   return axios.get("/api/google", { params: { q: "title:" + q } });
