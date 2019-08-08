@@ -3,7 +3,7 @@ import API from "../../../utils/API";
 import Card from "../../Card";
 import SaveBtn from "../../SaveBtn";
 import { List } from "../../List";
-
+import NavTabs from "../../Navbar/index"
 class Food extends Component {
   state = {
     food: [],
@@ -49,6 +49,7 @@ class Food extends Component {
   render() {
     return (
       <div>
+      <NavTabs />
         <h1>Food</h1>
         {this.state.food.length ? (
           <div>

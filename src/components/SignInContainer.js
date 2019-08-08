@@ -45,40 +45,40 @@ class SignUpContainer extends Component {
         }
         else {
             //send a GET request to login exisiting user
-            // axios.get("http://localhost:8080/api/users/"+userData.name+"/"+userData.password).then(results => {
-            //     console.log(results.data);
-            // });
+            axios.get("http://localhost:8080/api/users/" + userData.name + "/" + userData.password).then(results => {
+                console.log(results.data);
+                if (results.data.success) {
+                    alert("Welcome");
+                    this.props.history.push('/preferences')
+                }
+                else {
+                    alert("Invalid username or password, try again")
+                }
+            })
 
             // Send a POST request to create new user
-            axios({
-                method: 'post',
-                url: "http://localhost:8080/api/users/",
-                data: {
-                    name: userData.name,
-                    password: userData.password
-                }
-            }).then(res => {
-                console.log(res.data);
-            if(res.data.success) {
-                alert("Success! Welcome to the app!");
-                this.props.history.push('/signin')
-            }
-            else {
-                alert("Username is taken, please choose another username")
-            }
-            })
-           
+            // axios({
+            //     method: 'post',
+            //     url: "http://localhost:8080/api/users/",
+            //     data: {
+            //         name: userData.name,
+            //         password: userData.password
+            //     }
+            // }).then(res => {
+            //     console.log(res.data);
+            // if(res.data.success) {
+            //     alert("Success! Welcome to the app!");
+            //     this.props.history.push('/signin')
+            // }
+            // else {
+            //     alert("Username is taken, please choose another username")
+            // }
+            // })
+
         }
 
     };
 
-    cancelCourse = () => {
-        this.setState({
-            name:"",
-            password:""
-        })
-    }
-  
 
     render() {
         return (
@@ -89,7 +89,7 @@ class SignUpContainer extends Component {
                     title={'Username'}
                     name={'name'}
                     value={this.state.newUser.name}
-                    placeholder={'Enter your username'}
+                    placeholder={'username'}
                     handleChange={this.handleInput}
 
                 />
@@ -98,7 +98,7 @@ class SignUpContainer extends Component {
                     name={'password'}
                     title={'Password'}
                     value={this.state.newUser.password}
-                    placeholder={'Choose a password'}
+                    placeholder={'password'}
                     handleChange={this.handleInput} />
 
 
