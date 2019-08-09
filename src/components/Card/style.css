@@ -4,6 +4,12 @@
 .card {
   width:20rem;
   height:25rem;
- float:left;
- margin:1rem
+  float:left;
+  margin:4rem;
+}
+.card {
+  background-image: url("./xv.png");
+  /* opacity: 0.8; */
+  color: black;
+  overflow-y: auto;
 }

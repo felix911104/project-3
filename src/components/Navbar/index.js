@@ -4,7 +4,7 @@ import "./style.css";
 function NavTabs() {
   return (
     <div className="btn-group jumbotron-fluid">
-        <Link to="/">
+        <Link to={process.env.PUBLIC_URL + "/"}>
           <button className="btn btn-outline-primary">Home</button>
         </Link>
         <Link to="/preferences">
@@ -12,6 +12,12 @@ function NavTabs() {
         </Link>
         <Link to="/food">
           <button className="btn btn-outline-primary">Food</button>
+        </Link>
+        <Link to="/shelters">
+          <button className="btn btn-outline-primary">Shelters</button>
+        </Link>
+        <Link to="/clinics">
+          <button className="btn btn-outline-primary">Clinics</button>
         </Link>
       </div>
   );

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../../utils/API";
 import Card from "../../Card";
 import DeleteBtn from "../../DeleteBtn";
+import NavTabs from "../../Navbar/index";
 
 
 class Preferences extends Component {
@@ -54,12 +55,12 @@ class Preferences extends Component {
 render() {
   return (
     <div>
-    
+    <NavTabs />
       <h1>Preferences</h1>
 {this.state.food.length ? (
   <div>
     {this.state.food.map((food, index) => (
-      <Card title={index + 1} icon="download">
+      <Card title="food"  icon="download">
         <p>time: {food.day_time}</p>
         <p>meal served: {food.meal_served}</p>
         <p>people: {food.people_served}</p>

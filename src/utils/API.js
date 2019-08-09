@@ -26,9 +26,9 @@ export default {
   },
 
 
-  getClinic: function() {
-    return axios.get("http://localhost:8080/api/clinic")
-  }
+  // getClinic: function() {
+  //   return axios.get("http://localhost:8080/api/clinic")
+  // }
 
   // // Gets books from the Google API
   // getBooks: function(q) {
