@@ -8,7 +8,7 @@ import "./style.css";
 class Food extends Component {
   state = {
     food: [],
-    userId: 0
+    userId: "-1"
   };
 
   componentDidMount() {
@@ -31,6 +31,7 @@ class Food extends Component {
       this.setState({
         userId: userId
       })
+      console.log(this.state.userId)
     }
   }
 
@@ -45,6 +46,7 @@ class Food extends Component {
 
   saveFoodToDatabase = (food) => {
     console.log("123321")
+    console.log(this.state.userId)
     API.getFoodFromDatabase(food).then(foodInfo => {
       console.log(foodInfo.data)
       foodInfo.data ? (

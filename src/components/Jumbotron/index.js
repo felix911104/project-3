@@ -1,26 +1,68 @@
-import React from "react";
+import React, { Component } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-function Jumbotron() {
-    return (
+import LogoutBtn from "../LogoutBtn";
+import SignupBtn from "../SignupBtn";
+import LoginBtn from "../LoginBtn";
+
+import PreferencesBtn from "../preferencesBtn";
+
+class Jumbotron extends Component {
+    state = {
+        food: [],
+        userId: "-1"
+      };
+    
+      componentDidMount() {
+        this.checkToken()
+    
+      }
+
+      checkToken =() =>{
+        let userId=parseInt( localStorage.getItem("sheltrUserId"))
+        let expireTime = localStorage.getItem("sheltrExpireTime")
+        expireTime = new Date(expireTime)
+        if(!userId){
+          return;
+        }
+        else if(userId<0)
+        {
+          return;
+        }
+        else if(expireTime>new Date()){
+          this.setState({
+            userId: userId
+          }, ()=>{
+
+              console.log(this.state.userId)
+          })
+        }
+      }
+
+      logout=()=>{
+        localStorage.setItem("sheltrUserId", -1);
+        this.setState({
+            userId: "-1"
+          })
+      }
+
+    render(){
+        let loggedIn = this.state.userId !== "-1";
+       
+      return (
         <div>
             <div id="cover">
                 <div className="jumbotron jumbotron-fluid">
                     <div className="btn-group rightHeader">
-                        <Link to="/login">
-                            <button className="btn btn-outline-primary">Log-In</button>
-                        </Link>
-                        <Link to="/signup">
-                            <button className="btn btn-outline-primary">Sign-Up</button>
-                        </Link>
+                    <LogoutBtn  hidden={!loggedIn} onClick={() => this.logout()} /> <PreferencesBtn hidden={!loggedIn} /><LoginBtn hidden={loggedIn}/> <SignupBtn hidden={loggedIn}/>)
                     </div>
                     <div className="btn-group leftHeader">
                         <Link to="/">
                             <button className="btn btn-outline-primary">Home</button>
                         </Link>
-                        <Link to="/preferences">
+                        {/* <Link to="/preferences">
                             <button className="btn btn-outline-primary">Preferences</button>
-                        </Link>
+                        </Link> */}
                         <Link to="/food">
                             <button className="btn btn-outline-primary">Food</button>
                         </Link>
@@ -47,6 +89,7 @@ function Jumbotron() {
 
         </div>
     );
+                    }
 }
 
 export default Jumbotron;
