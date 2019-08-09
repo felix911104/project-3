@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     width: '50vp',
     // backgroundColor: "darkgray",
     // backgroundImage: "./food.jpg",
-    fontColor: "black",
+    Color: "#2ECCFA",
     opacity: 0.9,
     hover: 1.0,
     marginBottom: "10px"

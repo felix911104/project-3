@@ -14,13 +14,13 @@ margin:0;
   bottom:0; 
   height:100%;
   width:100%; 
-  height:180px; 
+  height:160px; 
 }
 
 .text {
   color: #424242;
   font-family: Lato;
-  font-size: 60px;
+  font-size: 45px;
   text-align: center;
   margin-top: 20px;
 }
@@ -28,7 +28,7 @@ margin:0;
 .text2 {
   color: #424242;
   font-family: Lato;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   margin-top: -10px;
 }
@@ -36,7 +36,7 @@ margin:0;
 .text3 {
   color: #424242;
   font-family: Lato;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   margin-top: 0px;
   float: center;

@@ -4,7 +4,7 @@ import "./style.css";
 function NavTabs() {
   return (
     <div className="btn-group jumbotron-fluid">
-        <Link to={process.env.PUBLIC_URL + "/"}>
+        <Link to="/">
           <button className="btn btn-outline-primary">Home</button>
         </Link>
      

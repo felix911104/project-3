@@ -13,7 +13,7 @@ body {
 	width: 390px;
 	height: 550px;
 	background: #1d1d1d;
-	margin: 100px auto;
+	margin: 60px auto;
 	text-align: center;
 	border-radius: 10px;
 	-webkit-box-shadow: 0 0 20px rgba(0,0,0,0.2);
@@ -120,7 +120,7 @@ input[type='submit']:hover {
 }
 
 .fa-lock {
-	color: white;
+  color: white;
   position: absolute;
   top: 105px;
   left: 56px;
@@ -165,6 +165,14 @@ input[type='submit']:hover {
 }
 
 
+
+.la {
+	font-family: 'Concert One', cursive;
+	font-size: 30px;
+	margin-top:50px;
+	text-align: center;
+	
+}
 
 
 
