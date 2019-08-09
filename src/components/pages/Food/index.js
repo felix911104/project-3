@@ -55,16 +55,16 @@ class Food extends Component {
           <div>
             {this.state.food.map((food, index) => (
               <Card title={index + 1} icon="download">
-                <p>time: {food.day_time}</p>
-                <p>meal served: {food.meal_served}</p>
-                <p>people: {food.people_served}</p>
-                <p>locaton: {food.location}</p>
-                <p>program name: {food.name_of_program}</p>
                 {(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
                   userId: this.state.userId,
                   foodData: food
                 }
                 )} />) : (<p></p>)}
+                <p>time: {food.day_time}</p>
+                <p>meal served: {food.meal_served}</p>
+                <p>people: {food.people_served}</p>
+                <p>locaton: {food.location}</p>
+                <p>program name: {food.name_of_program}</p>
               </Card>
 
             ))}
