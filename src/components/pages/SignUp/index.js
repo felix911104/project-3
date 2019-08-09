@@ -48,7 +48,7 @@ class SignUp extends Component {
     else {
       axios({
         method: 'post',
-        url: "http://localhost:8080/api/users/",
+        url: "https://intense-escarpment-74172.herokuapp.com/api/users/",
         data: {
           name: userData.name,
           password: userData.password

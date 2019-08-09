@@ -5,6 +5,7 @@ import SaveBtn from "../../SaveBtn";
 // import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
 import "./style.css";
+import {Link} from "react-router-dom";
 class Food extends Component {
   state = {
     food: [],
@@ -73,20 +74,28 @@ class Food extends Component {
       <div>
       <NavTabs />
         <h1 className="text-center">Food</h1>
+        <h3 className="text-center">A list of Food Banks and more that offer low-cost or free food.
+        <br></br>
+        To save preferences for quick reference 
+        <Link to="/login"> Log-In </Link>
+        or
+        <Link to="/signup"> Sign-Up </Link>
+        </h3>
         {this.state.food.length ? (
           <div>
           {this.state.food.map((food, index) => (
             <Card className="displaycards" title={index + 1} icon="download">
-                {(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
+                <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
                   userId: this.state.userId,
                   foodData: food
                 }
                 )} />) : (<p></p>)}
-                <p>Program Name: {food.name_of_program}</p>
-                <p>Time: {food.day_time}</p>
-                <p>Meal Served: {food.meal_served}</p>
-                <p>People: {food.people_served}</p>
-                <p>Locaton: {food.location}</p>
+                </div>
+                <p><b>Program Name:</b> <br></br>{food.name_of_program}</p>
+                <p><b>Time:</b> <br></br>{food.day_time}</p>
+                <p><b>Meal Served:</b> <br></br>{food.meal_served}</p>
+                <p><b>People:</b> <br></br>{food.people_served}</p>
+                <p><b>Locaton:</b> <br></br>{food.location}</p>
               </Card>
 
             ))}
