@@ -14,6 +14,7 @@ class Jumbotron extends Component {
   };
 
   componentDidMount() {
+
     this.checkToken();
   }
 
@@ -61,6 +62,7 @@ class Jumbotron extends Component {
                 <button className="btn btn-outline-primary">Home</button>
               </Link>
               {/* <Link to="/preferences">
+
                             <button className="btn btn-outline-primary">Preferences</button>
                         </Link> */}
               <Link to="/food">
@@ -74,6 +76,7 @@ class Jumbotron extends Component {
               </Link>
             </div>
             <div className="container">
+
               <h1
                 className="title display-3 text-center abc"
                 style={{ fontWeight: 100 }}
@@ -86,6 +89,7 @@ class Jumbotron extends Component {
         </div>
       </div>
     );
+
   }
 }
 
