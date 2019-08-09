@@ -54,7 +54,7 @@ class Jumbotron extends Component {
             <div id="cover">
                 <div className="jumbotron jumbotron-fluid">
                     <div className="btn-group rightHeader">
-                    <LogoutBtn  hidden={!loggedIn} onClick={() => this.logout()} /> <PreferencesBtn hidden={!loggedIn} /><LoginBtn hidden={loggedIn}/> <SignupBtn hidden={loggedIn}/>)
+                    <LogoutBtn  hidden={!loggedIn} onClick={() => this.logout()} /> <PreferencesBtn hidden={!loggedIn} /><LoginBtn hidden={loggedIn}/> <SignupBtn hidden={loggedIn}/>
                     </div>
                     <div className="btn-group leftHeader">
                         <Link to="/">
