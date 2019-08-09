@@ -33,7 +33,7 @@ body {
 	-webkit-animation: rotation 10s infinite linear;
 	-webkit-box-shadow: 0 0 100px white;
 	        box-shadow: 0 0 100px white;
-	background: #1d1d1d;  /* fallback for old browsers */
+	/* background: #1d1d1d;  fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #F05D18, #1d1d1d);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #F05D18, #1d1d1d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 

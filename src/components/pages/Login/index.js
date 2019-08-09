@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./style.css";
 import axios from "axios";
+import Footer from "../../Footer/index"
+import { Link } from "react-router-dom";
+
 
 class LogIn extends Component {
   constructor(props) {
@@ -27,7 +30,7 @@ class LogIn extends Component {
       {
         ...prevState.newUser, [name]: value
       }
-    }), () => console.log(this.state.newUser))
+    }), () => {})
   }
 
 
@@ -45,7 +48,16 @@ class LogIn extends Component {
       axios.get("http://localhost:8080/api/users/" + userData.name + "/" + userData.password).then(results => {
         console.log(results.data);
         if (results.data.success) {
-          this.props.history.push('/')
+          axios.get("http://localhost:8080/api/userbyname/"+userData.name).then(user=>{
+            console.log("123"+user.data.id)
+            localStorage.setItem("sheltrUserId", user.data.id);
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            localStorage.setItem("sheltrExpireTime", tomorrow);
+            
+          })
+          this.props.history.push('/');
+          window.location.reload();
         }
         else {
           alert("Invalid username or password, try again")
@@ -59,16 +71,17 @@ class LogIn extends Component {
         <div className="container">
           <div className="main">
             <div className="logo">
-              <h1>S</h1>
+            <Link to="/"><h1>L</h1></Link>
             </div>
             <form action="/" onSubmit={this.handleFormSubmit}>
               <input type="text" title="Username" name="name" value={this.state.newUser.name} placeholder="Enter a user name" onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-user" />
               <input type={"password"} title={"password"} name={"password"} value={this.state.newUser.password} placeholder={"enter a password"} onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-lock" />
               <input action={this.handleFormSubmit} type="submit" defaultValue="Log In" />
-              <h4>Already have an account?<a href="/login"> Go Login!</a></h4>
+              <h4>Don't have an account?<a href="/signup"> Signup here!</a></h4>
             </form>
           </div>
         </div>
+        <Footer/>
 
 
 

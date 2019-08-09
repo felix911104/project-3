@@ -66,7 +66,7 @@ export default function RecipeReviewCard() {
             <Card className={classes.card}>
                 <CardHeader 
                 
-                    title="Food"
+                    title="About Us"
                     subheader=""
                 />
                 {/* <CardMedia
@@ -93,10 +93,6 @@ export default function RecipeReviewCard() {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <MiniCard />
-                        <br></br>
-                        <MiniCard />
-                        <br></br>
                         <MiniCard />
                     </CardContent>
                 </Collapse>

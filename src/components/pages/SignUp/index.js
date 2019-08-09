@@ -1,6 +1,10 @@
+
 import React, { Component } from "react";
 import "./style.css";
 import axios from "axios";
+import Footer from "../../Footer/index"
+import { Link } from "react-router-dom";
+
 
 
 class SignUp extends Component {
@@ -70,7 +74,7 @@ class SignUp extends Component {
         <div className="container">
           <div className="main">
             <div className="logo">
-              <h1>S</h1>
+            <Link to="/"><h1>S</h1></Link>
             </div>
             <form action="/" onSubmit={this.handleFormSubmit}>
               <input type="text" title="Username" name="name" value={this.state.newUser.name} placeholder="Enter a user name" onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-user" />
@@ -80,6 +84,7 @@ class SignUp extends Component {
             </form>
           </div>
         </div>
+        <Footer/>
 
 
 

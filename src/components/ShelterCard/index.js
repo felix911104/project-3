@@ -18,6 +18,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MiniCard from '../MiniCard/index';
 import { minHeight } from '@material-ui/system';
 import Background from '../ShelterCard/shelter.jpg'
+import MiniShelterCard from "../MiniShelterCard/index";
+import DonationsCard from "../DonationsCard/index"
 const useStyles = makeStyles(theme => ({
     card: {
         textAlign: "center",
@@ -64,7 +66,7 @@ export default function RecipeReviewCard() {
             <Card className={classes.card}>
                 <CardHeader 
                 
-                    title="Shelters"
+                    title="Donate"
                     subheader=""
                 />
                 {/* <CardMedia
@@ -91,11 +93,8 @@ export default function RecipeReviewCard() {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <MiniCard />
-                        <br></br>
-                        <MiniCard />
-                        <br></br>
-                        <MiniCard />
+                        <MiniShelterCard />
+                        <DonationsCard />
                     </CardContent>
                 </Collapse>
             </Card>

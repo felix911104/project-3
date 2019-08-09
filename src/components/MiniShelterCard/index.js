@@ -11,8 +11,10 @@ const useStyles = makeStyles({
     width: '50vp',
     // backgroundColor: "darkgray",
     // backgroundImage: "./food.jpg",
+    fontColor: "black",
     opacity: 0.9,
-    hover: 1.0
+    hover: 1.0,
+    marginBottom: "10px"
   },
 //   card:hover {
 //     opacity: 1.0,
@@ -30,21 +32,20 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleCard() {
+export default function SimpleCard(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.card}>
       <CardContent>
-        <Typography className={classes.title} color="black" gutterBottom>
-            Sheltr is a web application geared towards helping low-income and homeless people.  It was created by four web development students, who wished to help anyone that needed it.
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
         </Typography>
         <Typography variant="h5" component="h2">
-
+          {/* put props here? Look at docs for material UI-react */}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          
+        <Typography className={classes.pos} color="black">
+         While Sheltr itself does not accept donations, there are plenty of local Seattle Charities, Food Banks, ect. that do accept and help local people.  Here are just a few we like.
         </Typography>
         <Typography variant="body2" component="p">
           <br />
