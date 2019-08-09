@@ -23,9 +23,10 @@ const useStyles = makeStyles(theme => ({
     card: {
         textAlign: "center",
         // backgroundColor: "#1d1d1d",
-        color: "black",
+        color: "#5DADE2",
         backgroundImage: `url(${Background})`,
         width: "100%",
+       
     },
     media: {
         // height: 0,
@@ -38,6 +39,7 @@ const useStyles = makeStyles(theme => ({
         transition: theme.transitions.create('transform', {
             duration: theme.transitions.duration.shortest,
         }),
+        color: "#5DADE2"
     },
     expandOpen: {
         transform: 'rotate(180deg)',

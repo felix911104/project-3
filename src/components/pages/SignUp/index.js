@@ -48,7 +48,7 @@ class SignUp extends Component {
     else {
       axios({
         method: 'post',
-        url: "http://localhost:8080/api/users/",
+        url: "https://intense-escarpment-74172.herokuapp.com/api/users/",
         data: {
           name: userData.name,
           password: userData.password
@@ -72,7 +72,10 @@ class SignUp extends Component {
     return (
       <div>
         <div className="container">
-          <div className="main">
+          <h3 className="la">Hi, Dear!
+        Sign Up Here <i class="fas fa-seedling"></i></h3>
+        <div className="main">
+          
             <div className="logo">
             <Link to="/"><h1>S</h1></Link>
             </div>
@@ -80,7 +83,7 @@ class SignUp extends Component {
               <input type="text" title="Username" name="name" value={this.state.newUser.name} placeholder="Enter a user name" onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-user" />
               <input type={"password"} title={"password"} name={"password"} value={this.state.newUser.password} placeholder={"enter a password"} onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-lock" />
               <input action={this.handleFormSubmit} type="submit" defaultValue="Log In" />
-              <h4>Already have an account?<a href="/login"> Go Login!</a></h4>
+              <h4>Already have an account?<Link to="/login"> Go Login!</Link></h4>
             </form>
           </div>
         </div>

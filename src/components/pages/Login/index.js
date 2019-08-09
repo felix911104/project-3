@@ -45,10 +45,10 @@ class LogIn extends Component {
     }
     else {
       //send a GET request to login exisiting user
-      axios.get("http://localhost:8080/api/users/" + userData.name + "/" + userData.password).then(results => {
+      axios.get("https://intense-escarpment-74172.herokuapp.com/api/users/" + userData.name + "/" + userData.password).then(results => {
         console.log(results.data);
         if (results.data.success) {
-          axios.get("http://localhost:8080/api/userbyname/"+userData.name).then(user=>{
+          axios.get("https://intense-escarpment-74172.herokuapp.com/api/userbyname/"+userData.name).then(user=>{
             console.log("123"+user.data.id)
             localStorage.setItem("sheltrUserId", user.data.id);
             var tomorrow = new Date();
@@ -69,15 +69,19 @@ class LogIn extends Component {
     return (
       <div>
         <div className="container">
+        <h3 className="la">Hi, Dear!
+        Login Here <i class="fas fa-seedling"></i></h3>
           <div className="main">
-            <div className="logo">
+          <div className="logo">
             <Link to="/"><h1>L</h1></Link>
-            </div>
+            
+          </div>
+          
             <form action="/" onSubmit={this.handleFormSubmit}>
               <input type="text" title="Username" name="name" value={this.state.newUser.name} placeholder="Enter a user name" onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-user" />
               <input type={"password"} title={"password"} name={"password"} value={this.state.newUser.password} placeholder={"enter a password"} onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-lock" />
               <input action={this.handleFormSubmit} type="submit" defaultValue="Log In" />
-              <h4>Don't have an account?<a href="/signup"> Signup here!</a></h4>
+              <h4>Don't have an account?<Link to="/signup"> Signup here!</Link></h4>
             </form>
           </div>
         </div>

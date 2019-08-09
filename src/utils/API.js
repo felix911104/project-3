@@ -2,29 +2,28 @@ import axios from "axios";
 
 export default {
   getFood: function(q) {
-      return axios.get("http://localhost:8080/api/food");
+      return axios.get("https://intense-escarpment-74172.herokuapp.com/api/food");
     },
 
   saveFoodToDatabase: function(foodData){
-    return axios.post("http://localhost:8080/api/fooddatabase", foodData);
+    return axios.post("https://intense-escarpment-74172.herokuapp.com/api/fooddatabase", foodData);
   },
 
   saveFoodToUser: function(foodData){
-    return axios.post("http://localhost:8080/api/foodtouser", foodData);
+    return axios.post("https://intense-escarpment-74172.herokuapp.com/api/foodtouser", foodData);
   },
   
   getFoodFromDatabase: function(foodData){
-    return axios.get("http://localhost:8080/api/foodindatabase/" + foodData.foodData.location);
+    return axios.get("https://intense-escarpment-74172.herokuapp.com/api/foodindatabase/" + foodData.foodData.location);
   },
   
   getFoodByUserId: function(id){
-    return axios.get("http://localhost:8080/api/userfood/" + id);
+    return axios.get("https://intense-escarpment-74172.herokuapp.com/api/userfood/" + id);
   },
 
   deleteFoodFromUser: function(food){
-    return axios.delete("http://localhost:8080/api/deletefood/"+ food.userId+"/"+food.foodData.id);
+    return axios.delete("https://intense-escarpment-74172.herokuapp.com/api/deletefood/"+ food.userId+"/"+food.foodData.id);
   },
-
 
 
 
@@ -43,5 +42,4 @@ export default {
   // // Saves an book to the database
   // saveBook: function(bookData) {
   //   return axios.post("/api/books", bookData);
-  // }
-};
+  };
