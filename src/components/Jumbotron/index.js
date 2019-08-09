@@ -33,33 +33,23 @@ class Jumbotron extends Component {
         userId: userId
       }, () => {
 
-        console.log(this.state.userId)
-      })
-    }
-  }
 
-  logout = () => {
-    localStorage.setItem("sheltrUserId", -1);
-    this.setState({
-      userId: "-1"
-    })
-  }
+    render(){
+        let loggedIn = this.state.userId !== "-1";
+       
+      return (
+        <div>
+            <div id="cover">
+                <div className="jumbotron jumbotron-fluid">
+                    <div className="btn-group rightHeader">
+                    <LogoutBtn  hidden={!loggedIn} onClick={() => this.logout()} /> <PreferencesBtn hidden={!loggedIn} /><LoginBtn hidden={loggedIn}/> <SignupBtn hidden={loggedIn}/>
+                    </div>
+                    <div className="btn-group leftHeader">
+                        <Link to="/">
+                            <button className="btn btn-outline-primary">Home</button>
+                        </Link>
+                        {/* <Link to="/preferences">
 
-  render() {
-    let loggedIn = this.state.userId !== "-1";
-
-    return (
-      <div>
-        <div id="cover">
-          <div className="jumbotron jumbotron-fluid">
-            <div className="btn-group rightHeader">
-              <LogoutBtn hidden={!loggedIn} onClick={() => this.logout()} /> <PreferencesBtn hidden={!loggedIn} /><LoginBtn hidden={loggedIn} /> <SignupBtn hidden={loggedIn} />)
-            </div>
-            <div className="btn-group leftHeader">
-              <Link to="/">
-                <button className="btn btn-outline-primary">Home</button>
-              </Link>
-              {/* <Link to="/preferences">
                             <button className="btn btn-outline-primary">Preferences</button>
                         </Link> */}
               <Link to="/food">
