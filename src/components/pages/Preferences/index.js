@@ -2,40 +2,65 @@ import React, { Component } from "react";
 import API from "../../../utils/API";
 import Card from "../../Card";
 import DeleteBtn from "../../DeleteBtn";
+import NavTabs from "../../Navbar/index";
 
 
 class Preferences extends Component {
   state = {
     food: [],
-    userId: "1"
+    userId: "-1"
   };
 
   componentDidMount() {
-    this.getFood(this.state.userId)
+    this.checkToken()
+  }
+
+  checkToken =() =>{
+    let logInUserId = parseInt(localStorage.getItem("sheltrUserId"))
+    let expireTime = localStorage.getItem("sheltrExpireTime")
+    expireTime = new Date(expireTime)
+    if(!logInUserId){
+      return 
+    }
+    else if(logInUserId<0)
+    {
+      return 
+    }
+    else if(expireTime>new Date()){
+      this.getFood(logInUserId)
+    }
   }
 
   getFood = (id) => {
+    this.setState({
+      userId: id
+    })
     API.getFoodByUserId(id).then(res => {
       this.setState({
         food: res.data
       })
     })
       .catch(err => console.log(err));
-  }
+  };
 
-  deleteFoodFromUser(){
-    alert("not finish this function")
-  }
+ 
+
+  deleteFoodFromUser = food=>{
+    API.deleteFoodFromUser (food).then(res=> {
+      this.getFood(this.state.userId)
+    })
+    // alert("not finish this function")
+  };
 
 render() {
   return (
     <div>
-    
+    <NavTabs />
       <h1>Preferences</h1>
 {this.state.food.length ? (
   <div>
     {this.state.food.map((food, index) => (
-      <Card title={index + 1} icon="download">
+      <Card title="food"  icon="download">
         <p>time: {food.day_time}</p>
         <p>meal served: {food.meal_served}</p>
         <p>people: {food.people_served}</p>

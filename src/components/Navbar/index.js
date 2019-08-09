@@ -7,9 +7,7 @@ function NavTabs() {
         <Link to={process.env.PUBLIC_URL + "/"}>
           <button className="btn btn-outline-primary">Home</button>
         </Link>
-        <Link to="/preferences">
-          <button className="btn btn-outline-primary">Preferences</button>
-        </Link>
+     
         <Link to="/food">
           <button className="btn btn-outline-primary">Food</button>
         </Link>

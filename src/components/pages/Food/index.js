@@ -2,17 +2,37 @@ import React, { Component } from "react";
 import API from "../../../utils/API";
 import Card from "../../Card";
 import SaveBtn from "../../SaveBtn";
-import { List } from "../../List";
+// import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
 import "./style.css";
 class Food extends Component {
   state = {
     food: [],
-    userId: "1"
+    userId: "-1"
   };
 
   componentDidMount() {
     this.getFood()
+    this.checkToken()
+
+  }
+  checkToken =() =>{
+    let userId=parseInt( localStorage.getItem("sheltrUserId"))
+    let expireTime = localStorage.getItem("sheltrExpireTime")
+    expireTime = new Date(expireTime)
+    if(!userId){
+      return
+    }
+    else if(userId<0)
+    {
+      return
+    }
+    else if(expireTime>new Date()){
+      this.setState({
+        userId: userId
+      })
+      console.log(this.state.userId)
+    }
   }
 
   getFood = () => {
@@ -25,7 +45,8 @@ class Food extends Component {
   }
 
   saveFoodToDatabase = (food) => {
-    // console.log(food)
+    console.log("123321")
+    console.log(this.state.userId)
     API.getFoodFromDatabase(food).then(foodInfo => {
       console.log(foodInfo.data)
       foodInfo.data ? (
