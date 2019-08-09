@@ -2,16 +2,35 @@ import React, { Component } from "react";
 import API from "../../../utils/API";
 import Card from "../../Card";
 import SaveBtn from "../../SaveBtn";
-import { List } from "../../List";
+// import { List } from "../../List";
 import NavTabs from "../../Navbar/index"
 class Food extends Component {
   state = {
     food: [],
-    userId: "1"
+    userId: 0
   };
 
   componentDidMount() {
     this.getFood()
+    this.checkToken()
+
+  }
+  checkToken =() =>{
+    let userId=parseInt( localStorage.getItem("sheltrUserId"))
+    let expireTime = localStorage.getItem("sheltrExpireTime")
+    expireTime = new Date(expireTime)
+    if(!userId){
+      return
+    }
+    else if(userId<0)
+    {
+      return
+    }
+    else if(expireTime>new Date()){
+      this.setState({
+        userId: userId
+      })
+    }
   }
 
   getFood = () => {

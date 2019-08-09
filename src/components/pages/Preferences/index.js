@@ -7,25 +7,49 @@ import DeleteBtn from "../../DeleteBtn";
 class Preferences extends Component {
   state = {
     food: [],
-    userId: "1"
+    userId: "-1"
   };
 
   componentDidMount() {
-    this.getFood(this.state.userId)
+    this.checkToken()
+  }
+
+  checkToken =() =>{
+    let logInUserId = parseInt(localStorage.getItem("sheltrUserId"))
+    let expireTime = localStorage.getItem("sheltrExpireTime")
+    expireTime = new Date(expireTime)
+    if(!logInUserId){
+      return 
+    }
+    else if(logInUserId<0)
+    {
+      return 
+    }
+    else if(expireTime>new Date()){
+      this.getFood(logInUserId)
+    }
   }
 
   getFood = (id) => {
+    this.setState({
+      userId: id
+    })
     API.getFoodByUserId(id).then(res => {
       this.setState({
         food: res.data
       })
     })
       .catch(err => console.log(err));
-  }
+  };
 
-  deleteFoodFromUser(){
-    alert("not finish this function")
-  }
+ 
+
+  deleteFoodFromUser = food=>{
+    API.deleteFoodFromUser (food).then(res=> {
+      this.getFood(this.state.userId)
+    })
+    // alert("not finish this function")
+  };
 
 render() {
   return (
