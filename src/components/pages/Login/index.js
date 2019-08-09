@@ -30,7 +30,7 @@ class LogIn extends Component {
       {
         ...prevState.newUser, [name]: value
       }
-    }), () => console.log(this.state.newUser))
+    }), () => {})
   }
 
 
@@ -48,6 +48,14 @@ class LogIn extends Component {
       axios.get("http://localhost:8080/api/users/" + userData.name + "/" + userData.password).then(results => {
         console.log(results.data);
         if (results.data.success) {
+          axios.get("http://localhost:8080/api/userbyname/"+userData.name).then(user=>{
+            console.log("123"+user.data.id)
+            localStorage.setItem("sheltrUserId", user.data.id);
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            localStorage.setItem("sheltrExpireTime", tomorrow);
+            
+          })
           this.props.history.push('/')
         }
         else {

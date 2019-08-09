@@ -21,6 +21,10 @@ export default {
     return axios.get("http://localhost:8080/api/userfood/" + id);
   },
 
+  deleteFoodFromUser: function(food){
+    return axios.delete("http://localhost:8080/api/deletefood/"+ food.userId+"/"+food.foodData.id);
+  },
+
 
   // getClinic: function() {
   //   return axios.get("http://localhost:8080/api/clinic")

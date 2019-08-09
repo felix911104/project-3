@@ -49,6 +49,7 @@ class SignUpContainer extends Component {
                 console.log(results.data);
                 if (results.data.success) {
                     alert("Welcome");
+                    
                     this.props.history.push('/preferences')
                 }
                 else {
