@@ -25,7 +25,7 @@ export default {
     return axios.delete("https://intense-escarpment-74172.herokuapp.com/api/deletefood/"+ food.userId+"/"+food.foodData.id);
   },
 
-
+ 
 
   // // Gets books from the Google API
   // getBooks: function(q) {
