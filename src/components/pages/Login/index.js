@@ -38,7 +38,7 @@ class LogIn extends Component {
 
   return isLocalHost ?
     "http://localhost:8080":
-    "https://intense-escarpment-74172.herokuapp.com";
+    "https://sheltr-p3.herokuapp.com";
 }
 
   handleFormSubmit(e) {
