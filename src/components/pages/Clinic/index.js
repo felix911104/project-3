@@ -44,28 +44,7 @@ class Clinic extends Component {
       .catch(err => console.log(err));
   }
 
-  // saveFoodToDatabase = (food) => {
-  //   console.log("123321")
-  //   console.log(this.state.userId)
-  //   API.getFoodFromDatabase(food).then(foodInfo => {
-  //     console.log(foodInfo.data)
-  //     foodInfo.data ? (
 
-  //       API.saveFoodToUser(food).then(res => {
-  //         alert("food saved ")
-  //       })
-  //     ) : (
-  //       API.saveFoodToDatabase(food).then(res => {
-          
-  //           console.log("food saved to database")
-  //           API.saveFoodToUser(food).then(res => {
-  //             alert("food saved ")
-  //           })
-  //         })
-  //       )
-
-  //   })
-  // }
 
 
   render() {
@@ -77,19 +56,19 @@ class Clinic extends Component {
           <div>
           {this.state.clinic.map((clinic, index) => (
             <Card className="displaycards" title={index + 1} icon="download">
-                {(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
+                {(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveClinicsToUsers({
                   userId: this.state.userId,
                   clinicData: clinic
                 }
                 )} />) : (<p></p>)}
-                <p>Clinic Name: {clinic.Name}</p>
-                <p>Location: {clinic.Location}</p>
-                <p>Hours: {clinic.DaysOfOperation}</p>
-                <p>Phone Number: {clinic.PhoneNumber}</p>
-                <p>Clients Served: {clinic.ClientServed}</p>
-                <p>Services: {clinic.Services}</p>
-                <p>Notes: {clinic.Notes}</p>
-                <p>Link: {clinic.Link}</p>
+                <p><b>Clinic Name:</b><br></br> {clinic.Name}</p>
+                <p><b>Location:<br></br></b> {clinic.Location}</p>
+                <p><b>Hours:</b><br></br> {clinic.DaysOfOperation}</p>
+                <p><b>Phone Number:</b><br></br> {clinic.PhoneNumber}</p>
+                <p><b>Clients Served:</b><br></br> {clinic.ClientServed}</p>
+                <p><b>Services:</b><br></br> {clinic.Services}</p>
+                <p><b>Notes:</b><br></br> {clinic.Notes}</p>
+                <p><b>Link:</b><br></br> {clinic.Link}</p>
               </Card>
 
             ))}
@@ -98,7 +77,7 @@ class Clinic extends Component {
 
 
         ) : (
-            <h2 className="text-center">No Clinics</h2>
+            <h2 className="text-center">Clinics</h2>
           )}
       </div>
     );
