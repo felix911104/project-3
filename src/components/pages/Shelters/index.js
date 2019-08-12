@@ -5,15 +5,15 @@ import SaveBtn from "../../SaveBtn";
 // import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
 // import "./style.css";
-class Food extends Component {
+class Shelters extends Component {
   state = {
-    food: [],
+    shelters: [],
     userId: "-1"
   };
 
   componentDidMount() {
-    this.getFood()
     this.checkToken()
+    this.getShelters()
 
   }
   checkToken =() =>{
@@ -35,36 +35,21 @@ class Food extends Component {
     }
   }
 
-  getFood = () => {
-    API.getFood().then(res => {
+  getShelters = () => {
+    API.getShelters().then(res => {
+      console.log(res)
       this.setState({
-        food: res.data.data
+        shelters: res.data
       })
     })
       .catch(err => console.log(err));
   }
 
-  saveFoodToDatabase = (food) => {
-    console.log("123321")
-    console.log(this.state.userId)
-    API.getFoodFromDatabase(food).then(foodInfo => {
-      console.log(foodInfo.data)
-      foodInfo.data ? (
+  saveSheltersToUser = (shelter) => {
 
-        API.saveFoodToUser(food).then(res => {
-          alert("food saved ")
+        API.saveSheltersToUser(shelter).then(res => {
+          alert("Shelters saved ")
         })
-      ) : (
-        API.saveFoodToDatabase(food).then(res => {
-          
-            console.log("food saved to database")
-            API.saveFoodToUser(food).then(res => {
-              alert("food saved ")
-            })
-          })
-        )
-
-    })
   }
 
 
@@ -72,22 +57,20 @@ class Food extends Component {
     return (
       <div>
       <NavTabs />
-        <h1 className="text-center">Food</h1>
-        {this.state.food.length ? (
+        <h1 className="text-center">Shelters</h1>
+        {this.state.shelters.length ? (
           <div>
-          {this.state.food.map((food, index) => (
+          {this.state.shelters.map((shelter, index) => (
             <Card className="displaycards" title={index + 1} icon="download">
-                <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
+                <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveSheltersToUser({
                   userId: this.state.userId,
-                  foodData: food
+                  shelterData: shelter
                 }
                 )} />) : (<p></p>)}
                 </div>
-                <p>Program Name: {food.name_of_program}</p>
-                <p>Time: {food.day_time}</p>
-                <p>Meal Served: {food.meal_served}</p>
-                <p>People: {food.people_served}</p>
-                <p>Locaton: {food.location}</p>
+                <p>Name: {shelter.Name}</p>
+                <p>Location: {shelter.Location}</p>
+                
               </Card>
 
             ))}
@@ -96,7 +79,7 @@ class Food extends Component {
 
 
         ) : (
-            <h2 className="text-center">No food</h2>
+            <h2 className="text-center">No shelters</h2>
           )}
       </div>
     );
@@ -104,4 +87,4 @@ class Food extends Component {
 
 }
 
-export default Food;
+export default Shelters;

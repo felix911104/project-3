@@ -33,6 +33,13 @@ class LogIn extends Component {
     }), () => {})
   }
 
+ host(){
+  var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
+
+  return isLocalHost ?
+    "http://localhost:8080":
+    "https://intense-escarpment-74172.herokuapp.com";
+}
 
   handleFormSubmit(e) {
     e.preventDefault();
@@ -45,19 +52,19 @@ class LogIn extends Component {
     }
     else {
       //send a GET request to login exisiting user
-      axios.get("https://intense-escarpment-74172.herokuapp.com/api/users/" + userData.name + "/" + userData.password).then(results => {
+      axios.get(`${this.host()}/api/users/` + userData.name + "/" + userData.password).then(results => {
         console.log(results.data);
         if (results.data.success) {
-          axios.get("https://intense-escarpment-74172.herokuapp.com/api/userbyname/"+userData.name).then(user=>{
+          axios.get(`${this.host()}/api/userbyname/`+userData.name).then(user=>{
             console.log("123"+user.data.id)
             localStorage.setItem("sheltrUserId", user.data.id);
             var tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             localStorage.setItem("sheltrExpireTime", tomorrow);
             
-          })
-          this.props.history.push('/');
-          window.location.reload();
+            this.props.history.push('/');
+            window.location.reload();
+          });
         }
         else {
           alert("Invalid username or password, try again")
