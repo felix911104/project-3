@@ -83,11 +83,11 @@ class Food extends Component {
                 }
                 )} />) : (<p></p>)}
                 </div>
-                <p>Program Name: {food.name_of_program}</p>
-                <p>Time: {food.day_time}</p>
-                <p>Meal Served: {food.meal_served}</p>
-                <p>People: {food.people_served}</p>
-                <p>Locaton: {food.location}</p>
+                <p><b>Program Name:</b> <br></br>{food.name_of_program}</p>
+                <p><b>Time:</b> <br></br>{food.day_time}</p>
+                <p><b>Meal Served:</b> <br></br>{food.meal_served}</p>
+                <p><b>People:</b> <br></br>{food.people_served}</p>
+                <p><b>Locaton:</b> <br></br>{food.location}</p>
               </Card>
 
             ))}
