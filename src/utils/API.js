@@ -4,8 +4,8 @@ var host = () => {
   var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
 
   return isLocalHost ?
-    "http://localhost:8080" :
-    "https://intense-escarpment-74172.herokuapp.com";
+    "http://localhost:8080":
+    "https://sheltr-p3.herokuapp.com";
 }
 
 export default {
