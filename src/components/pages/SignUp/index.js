@@ -35,6 +35,13 @@ class SignUp extends Component {
     }), () => console.log(this.state.newUser))
   }
 
+  host(){
+  var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
+
+  return isLocalHost ?
+    "http://localhost:8080":
+    "https://intense-escarpment-74172.herokuapp.com";
+}
 
   handleFormSubmit(e) {
     e.preventDefault();
@@ -48,7 +55,7 @@ class SignUp extends Component {
     else {
       axios({
         method: 'post',
-        url: "https://intense-escarpment-74172.herokuapp.com/api/users/",
+        url: `${this.host()}/api/users/`,
         data: {
           name: userData.name,
           password: userData.password
