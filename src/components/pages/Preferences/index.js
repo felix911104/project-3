@@ -8,6 +8,7 @@ import NavTabs from "../../Navbar/index";
 class Preferences extends Component {
   state = {
     food: [],
+    shelters:[],
     userId: "-1"
   };
 
@@ -42,12 +43,30 @@ class Preferences extends Component {
     })
       .catch(err => console.log(err));
   };
-
+  
+  getShelters = (id) => {
+    this.setState({
+      userId: id
+    })
+    API.getSheltersByUserId(id).then(res => {
+      this.setState({
+        shelters: res.data
+      })
+    })
+      .catch(err => console.log(err));
+  };
  
 
   deleteFoodFromUser = food=>{
     API.deleteFoodFromUser (food).then(res=> {
       this.getFood(this.state.userId)
+    })
+    // alert("not finish this function")
+  };
+
+  deleteShelterFromUser = food=>{
+    API.deleteShelterFromUser (food).then(res=> {
+      this.getShelters(this.state.userId)
     })
     // alert("not finish this function")
   };
@@ -69,6 +88,22 @@ render() {
         {(this.state.userId !== "-1") ? (<DeleteBtn onClick={() => this.deleteFoodFromUser({
           userId: this.state.userId,
           foodData: food
+        }
+        )} />) : (<p></p>)}
+      </Card>
+
+    ))}
+
+    {this.state.shelters.map((shelter, index) => (
+      <Card title="shelter"  icon="download">
+        <p>time: {shelter.day_time}</p>
+        <p>meal served: {shelter.meal_served}</p>
+        <p>people: {shelter.people_served}</p>
+        <p>locaton: {shelter.location}</p>
+        <p>program name: {shelter.name_of_program}</p>
+        {(this.state.userId !== "-1") ? (<DeleteBtn onClick={() => this.deleteShelterFromUser({
+          userId: this.state.userId,
+          shelterData: shelter
         }
         )} />) : (<p></p>)}
       </Card>
