@@ -4,15 +4,15 @@ import Card from "../../Card";
 import SaveBtn from "../../SaveBtn";
 // import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
-// import "./style.css";
-class Food extends Component {
+import "./style.css";
+class Clinic extends Component {
   state = {
-    food: [],
+    clinic: [],
     userId: "-1"
   };
 
   componentDidMount() {
-    this.getFood()
+    this.getClinic()
     this.checkToken()
 
   }
@@ -35,59 +35,40 @@ class Food extends Component {
     }
   }
 
-  getFood = () => {
-    API.getFood().then(res => {
+  getClinic = () => {
+    API.getClinic().then(res => {
       this.setState({
-        food: res.data.data
+        clinic: res.data
       })
     })
       .catch(err => console.log(err));
   }
 
-  saveFoodToDatabase = (food) => {
-    console.log("123321")
-    console.log(this.state.userId)
-    API.getFoodFromDatabase(food).then(foodInfo => {
-      console.log(foodInfo.data)
-      foodInfo.data ? (
 
-        API.saveFoodToUser(food).then(res => {
-          alert("food saved ")
-        })
-      ) : (
-        API.saveFoodToDatabase(food).then(res => {
-          
-            console.log("food saved to database")
-            API.saveFoodToUser(food).then(res => {
-              alert("food saved ")
-            })
-          })
-        )
-
-    })
-  }
 
 
   render() {
     return (
       <div>
       <NavTabs />
-        <h1 className="text-center">Food</h1>
-        {this.state.food.length ? (
+        <h1 className="text-center">Clinic</h1>
+        {this.state.clinic.length ? (
           <div>
-          {this.state.food.map((food, index) => (
+          {this.state.clinic.map((clinic, index) => (
             <Card className="displaycards" title={index + 1} icon="download">
-                <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
+                {(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveClinicsToUsers({
                   userId: this.state.userId,
-                  foodData: food
+                  clinicData: clinic
                 }
                 )} />) : (<p></p>)}
-                </div>
-                <p><b>Program Name:</b> <br></br>{food.name_of_program}</p>
-                <p><b>Time:</b> <br></br>{food.day_time}</p>
-                <p><b>Meal Served:</b> <br></br>{food.meal_served}</p>
-                <p><b>People:</b> <br></br>{food.people_served}</p>
-                <p><b>Locaton:</b> <br></br>{food.location}</p>
+                <p><b>Clinic Name:</b><br></br> {clinic.Name}</p>
+                <p><b>Location:<br></br></b> {clinic.Location}</p>
+                <p><b>Hours:</b><br></br> {clinic.DaysOfOperation}</p>
+                <p><b>Phone Number:</b><br></br> {clinic.PhoneNumber}</p>
+                <p><b>Clients Served:</b><br></br> {clinic.ClientServed}</p>
+                <p><b>Services:</b><br></br> {clinic.Services}</p>
+                <p><b>Notes:</b><br></br> {clinic.Notes}</p>
+                <p><b>Link:</b><br></br> {clinic.Link}</p>
               </Card>
 
             ))}
@@ -96,7 +77,7 @@ class Food extends Component {
 
 
         ) : (
-            <h2 className="text-center">No food</h2>
+            <h2 className="text-center">Clinics</h2>
           )}
       </div>
     );
@@ -104,4 +85,4 @@ class Food extends Component {
 
 }
 
-export default Food;
+export default Clinic;
