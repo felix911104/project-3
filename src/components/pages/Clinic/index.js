@@ -44,6 +44,13 @@ class Clinic extends Component {
       .catch(err => console.log(err));
   }
 
+  saveClinicsToUser = (clinic) => {
+
+    API.saveClinicsToUser(clinic).then(res => {
+      alert("Clinics saved ")
+    })
+}
+
 
 
 
@@ -56,7 +63,7 @@ class Clinic extends Component {
           <div>
           {this.state.clinic.map((clinic, index) => (
             <Card className="displaycards" title={index + 1} icon="download">
-                {(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveClinicsToUsers({
+                {(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveClinicsToUser({
                   userId: this.state.userId,
                   clinicData: clinic
                 }

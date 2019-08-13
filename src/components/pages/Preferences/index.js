@@ -8,7 +8,8 @@ import NavTabs from "../../Navbar/index";
 class Preferences extends Component {
   state = {
     food: [],
-    shelters:[],
+    shelters: [],
+    clinics: [],
     userId: "-1"
   };
 
@@ -16,18 +17,17 @@ class Preferences extends Component {
     this.checkToken()
   }
 
-  checkToken =() =>{
+  checkToken = () => {
     let logInUserId = parseInt(localStorage.getItem("sheltrUserId"))
     let expireTime = localStorage.getItem("sheltrExpireTime")
     expireTime = new Date(expireTime)
-    if(!logInUserId){
-      return 
+    if (!logInUserId) {
+      return
     }
-    else if(logInUserId<0)
-    {
-      return 
+    else if (logInUserId < 0) {
+      return
     }
-    else if(expireTime>new Date()){
+    else if (expireTime > new Date()) {
       this.getFood(logInUserId)
     }
   }
@@ -43,7 +43,7 @@ class Preferences extends Component {
     })
       .catch(err => console.log(err));
   };
-  
+
   getShelters = (id) => {
     this.setState({
       userId: id
@@ -55,81 +55,85 @@ class Preferences extends Component {
     })
       .catch(err => console.log(err));
   };
- 
 
-  deleteFoodFromUser = food=>{
-    API.deleteFoodFromUser (food).then(res=> {
+  getClinics = (id) => {
+    this.setState({
+      userId: id
+    })
+    API.getClinicByUserId(id).then(res => {
+      this.setState({
+        clinics: res.data
+      })
+    })
+      .catch(err => console.log(err))
+  }
+
+
+  deleteFoodFromUser = food => {
+    API.deleteFoodFromUser(food).then(res => {
       this.getFood(this.state.userId)
     })
     // alert("not finish this function")
   };
 
-  deleteShelterFromUser = food=>{
-    API.deleteShelterFromUser (food).then(res=> {
+  deleteShelterFromUser = food => {
+    API.deleteShelterFromUser(food).then(res => {
       this.getShelters(this.state.userId)
     })
     // alert("not finish this function")
   };
 
-render() {
-  return (
-    <div>
-    <NavTabs />
-      <h1>Preferences</h1>
-{this.state.food.length ? (
-  <div>
-    {this.state.food.map((food, index) => (
-      <Card title="food"  icon="download">
-        <p>time: {food.day_time}</p>
-        <p>meal served: {food.meal_served}</p>
-        <p>people: {food.people_served}</p>
-        <p>locaton: {food.location}</p>
-        <p>program name: {food.name_of_program}</p>
-        {(this.state.userId !== "-1") ? (<DeleteBtn onClick={() => this.deleteFoodFromUser({
-          userId: this.state.userId,
-          foodData: food
-        }
-        )} />) : (<p></p>)}
-      </Card>
-
-    ))}
-
-    {this.state.shelters.map((shelter, index) => (
-      <Card title="shelter"  icon="download">
-        <p>time: {shelter.day_time}</p>
-        <p>meal served: {shelter.meal_served}</p>
-        <p>people: {shelter.people_served}</p>
-        <p>locaton: {shelter.location}</p>
-        <p>program name: {shelter.name_of_program}</p>
-        {(this.state.userId !== "-1") ? (<DeleteBtn onClick={() => this.deleteShelterFromUser({
-          userId: this.state.userId,
-          shelterData: shelter
-        }
-        )} />) : (<p></p>)}
-      </Card>
-
-    ))}
-
-  </div>
 
 
-) : (
-    <h2 className="text-center">No food</h2>
-  )}
+  render() {
+    return (
+      <div>
+        <NavTabs />
+        <h1 className="text-center"></h1>
+        {this.state.food.length ? (
+          <div>
+            {this.state.food.map((food, index) => (
+              <Card title="food" icon="download">
+                <p><b>Program Name:</b> <br></br>{food.name_of_program}</p>
+                <p><b>Time:</b> <br></br>{food.day_time}</p>
+                <p><b>Meal Served:</b> <br></br>{food.meal_served}</p>
+                <p><b>People:</b> <br></br>{food.people_served}</p>
+                <p><b>Locaton:</b> <br></br>{food.location}</p>
+                {(this.state.userId !== "-1") ? (<DeleteBtn onClick={() => this.deleteFoodFromUser({
+                  userId: this.state.userId,
+                  foodData: food
+                }
+                )} />) : (<p></p>)}
+              </Card>
 
-      {/* <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
-        varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.
-        Etiam ut feugiat ex. Cras non risus mi. Curabitur mattis rutrum ipsum, ut aliquet urna
-        imperdiet ac. Sed nec nulla aliquam, bibendum odio eget, vestibulum tortor. Cras rutrum
-        ligula in tincidunt commodo. Morbi sit amet mollis orci, in tristique ex. Donec nec ornare
-        elit. Donec blandit est sed risus feugiat porttitor. Vestibulum molestie hendrerit massa non
-        consequat. Vestibulum vitae lorem tortor. In elementum ultricies tempus. Interdum et
-        malesuada fames ac ante ipsum primis in faucibus.
-      </p> */}
-    </div>
-  );
-}
+            ))}
+
+            {this.state.shelters.map((shelter, index) => (
+              <Card title="shelter" icon="download">
+                <p>time: {shelter.day_time}</p>
+                <p>meal served: {shelter.meal_served}</p>
+                <p>people: {shelter.people_served}</p>
+                <p>locaton: {shelter.location}</p>
+                <p>program name: {shelter.name_of_program}</p>
+                {(this.state.userId !== "-1") ? (<DeleteBtn onClick={() => this.deleteShelterFromUser({
+                  userId: this.state.userId,
+                  shelterData: shelter
+                }
+                )} />) : (<p></p>)}
+              </Card>
+
+            ))}
+
+          </div>
+
+
+        ) : (
+            <h2 className="text-center">No food</h2>
+          )}
+
+      </div>
+    );
+  }
 }
 
 export default Preferences;

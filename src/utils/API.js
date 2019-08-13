@@ -4,8 +4,8 @@ var host = () => {
   var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
 
   return isLocalHost ?
-    "http://localhost:8080":
-    "https://sheltr-p3.herokuapp.com";
+  "http://localhost:8080":
+  "https://sheltr-p3.herokuapp.com"
 }
 
 export default {
@@ -40,8 +40,12 @@ export default {
   getClinic: function () {
     return axios.get(`${host()}/api/clinics`)
   },
-  saveClinicsToDatabase: function (clinicData) {
-    return axios.post(`${host()}/api/clinicdatabase`, clinicData);
+  saveClinicsToDatabase: function (ClinicData) {
+    return axios.post(`${host()}/api/Clinicsdatabase`, ClinicData);
+  },
+
+  saveClinicsToUser: function (clinicData) {
+    return axios.post(`${host()}/api/clinictouser`, clinicData);
   },
   getClinicByUserId: function (id) {
     return axios.get(`${host()}/api/userclinic/` + id);
@@ -49,16 +53,6 @@ export default {
   deleteClinicFromUser: function (clinic) {
     return axios.delete(`${host()}/api/deleteclinic/` + clinic.userId + "/" + clinic.clinicData.id);
   },
-
-
-
-  // getClinicsByUserId: function (id) {
-  //   return axios.get(`${host()}/api/userClinics/` + id);
-  // },
-
-  // deleteClinicsFromUser: function (Clinics) {
-  //   return axios.delete(`${host()}/api/deleteClinics/` + Clinics.userId + "/" + Clinics.ClinicsData.id);
-  // },
 
 
 
