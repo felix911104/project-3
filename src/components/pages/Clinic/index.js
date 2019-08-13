@@ -5,6 +5,7 @@ import SaveBtn from "../../SaveBtn";
 // import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
 // import "./style.css";
+import { Link } from "react-router-dom";
 class Clinic extends Component {
   state = {
     clinics: [],
@@ -62,6 +63,13 @@ render() {
     <div>
       <NavTabs />
       <h1 className="text-center">Clinics</h1>
+      <h3 className="text-center">A list of Clinics that offer low-cost or free services.
+      </h3>
+        <h3 className="text-center mb-5"> To save preferences for quick reference
+        <Link to="/login"> Log-In </Link>
+          or
+        <Link to="/signup"> Sign-Up </Link>
+        </h3>
       {this.state.clinics.length ? (
         <div>
           {this.state.clinics.map((clinic, index) => (
