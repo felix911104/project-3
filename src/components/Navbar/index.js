@@ -17,6 +17,9 @@ function NavTabs() {
       <Link to="/clinics">
         <button className="btn btn-outline-primary">Clinics</button>
       </Link>
+      <Link to="/preferences">
+        <button className="btn btn-outline-primary">Preferences</button>
+      </Link>
     </div>
   );
 
