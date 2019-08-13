@@ -68,8 +68,14 @@ class Clinic extends Component {
                 }
                 )} />) : (<p></p>)}
                 </div>
-                <p>Name: {clinic.Name}</p>
-                <p>Location: {clinic.Location}</p>
+                <p><b>Name:</b><br></br> {clinic.Name}</p>
+                <p><b>Location:</b><br></br> {clinic.Location}</p>
+                <p><b>Hours:</b><br></br> {clinic.DaysOfOperation}</p>
+                <p><b>Phone Number:</b><br></br> {clinic.PhoneNumber}</p>
+                <p><b>Clients Served:</b><br></br> {clinic.ClientsServed}</p>
+                <p><b>Services:</b><br></br> {clinic.Services}</p>
+                <p><b>Notes:</b><br></br> {clinic.Notes}</p>
+                <p><b>Link:</b><br></br> {clinic.Link}</p>
                 
               </Card>
 

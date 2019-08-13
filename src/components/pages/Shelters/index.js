@@ -68,8 +68,14 @@ class Shelters extends Component {
                 }
                 )} />) : (<p></p>)}
                 </div>
-                <p>Name: {shelter.Name}</p>
-                <p>Location: {shelter.Location}</p>
+                <p><b>Name:</b><br></br> {shelter.Name}</p>
+                <p><b>Location:</b><br></br> {shelter.Location}</p>
+                <p><b>Hours:</b><br></br> {shelter.DaysOfOperation}</p>
+                <p><b>Phone Number:</b><br></br> {shelter.PhoneNumber}</p>
+                <p><b>Clients Served:</b><br></br> {shelter.ClientsServed}</p>
+                <p><b>Services:</b><br></br> {shelter.Services}</p>
+                <p><b>Notes:</b><br></br> {shelter.Notes}</p>
+                <p><b>Link:</b><br></br> {shelter.Link}</p>
                 
               </Card>
 
