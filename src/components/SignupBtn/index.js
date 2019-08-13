@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 function SignupBtn(props) {
   return (
     <Link to="/signup">
-    <button className="btn btn-outline-primary" {...props}>Signup</button>
-  </Link>
+      <button className="btn btn-outline-primary" {...props}>Signup</button>
+    </Link>
   );
 }
 

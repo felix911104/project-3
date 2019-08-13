@@ -5,29 +5,29 @@ import SaveBtn from "../../SaveBtn";
 // import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
 // import "./style.css";
-class Food extends Component {
+import { Link } from "react-router-dom";
+class Clinic extends Component {
   state = {
-    food: [],
+    clinics: [],
     userId: "-1"
   };
 
   componentDidMount() {
-    this.getFood()
     this.checkToken()
+    this.getClinics()
 
   }
-  checkToken =() =>{
-    let userId=parseInt( localStorage.getItem("sheltrUserId"))
+  checkToken = () => {
+    let userId = parseInt(localStorage.getItem("sheltrUserId"))
     let expireTime = localStorage.getItem("sheltrExpireTime")
     expireTime = new Date(expireTime)
-    if(!userId){
+    if (!userId) {
       return
     }
-    else if(userId<0)
-    {
+    else if (userId < 0) {
       return
     }
-    else if(expireTime>new Date()){
+    else if (expireTime > new Date()) {
       this.setState({
         userId: userId
       })
@@ -35,73 +35,79 @@ class Food extends Component {
     }
   }
 
-  getFood = () => {
-    API.getFood().then(res => {
+  getClinics = () => {
+    API.getClinic().then(res => {
+      console.log(res)
       this.setState({
-        food: res.data.data
+        clinics: res.data
       })
     })
       .catch(err => console.log(err));
   }
 
-  saveFoodToDatabase = (food) => {
-    console.log("123321")
-    console.log(this.state.userId)
-    API.getFoodFromDatabase(food).then(foodInfo => {
-      console.log(foodInfo.data)
-      foodInfo.data ? (
+  saveClinicsToUser = (clinic) => {
 
-        API.saveFoodToUser(food).then(res => {
-          alert("food saved ")
-        })
-      ) : (
-        API.saveFoodToDatabase(food).then(res => {
-          
-            console.log("food saved to database")
-            API.saveFoodToUser(food).then(res => {
-              alert("food saved ")
-            })
-          })
-        )
 
+    API.saveClinicsToUser(clinic).then(res => {
+
+      alert("Clinics saved ")
     })
   }
 
 
-  render() {
-    return (
-      <div>
+
+
+
+render() {
+  let loggedIn = this.state.userId !== "-1";
+  return (
+    <div>
       <NavTabs />
-        <h1 className="text-center">Food</h1>
-        {this.state.food.length ? (
-          <div>
-          {this.state.food.map((food, index) => (
+      <h1 className="text-center">Clinics</h1>
+      <h3 className="text-center">A list of Clinics that offer low-cost or free services.
+      </h3>
+        <h3 className="text-center mb-5" hidden={loggedIn}> To save preferences for quick reference
+        <Link to="/login"> Log-In </Link>
+          or
+        <Link to="/signup"> Sign-Up </Link>
+        </h3>
+      {this.state.clinics.length ? (
+        <div>
+          {this.state.clinics.map((clinic, index) => (
             <Card className="displaycards" title={index + 1} icon="download">
-                <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
-                  userId: this.state.userId,
-                  foodData: food
-                }
-                )} />) : (<p></p>)}
-                </div>
-                <p>Program Name: {food.name_of_program}</p>
-                <p>Time: {food.day_time}</p>
-                <p>Meal Served: {food.meal_served}</p>
-                <p>People: {food.people_served}</p>
-                <p>Locaton: {food.location}</p>
-              </Card>
+              <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveClinicsToUser({
+                // {(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveClinicsToUser({
+                userId: this.state.userId,
+                clinicData: clinic
+              }
+              )} />) : (<p></p>)}
+              </div>
+              <p><b>Name:</b><br></br> {clinic.Name}</p>
+              <p><b>Location:</b><br></br> {clinic.Location}</p>
+              <p><b>Hours:</b><br></br> {clinic.DaysOfOperation}</p>
+              <p><b>Phone Number:</b><br></br> {clinic.PhoneNumber}</p>
+              <p><b>Clients Served:</b><br></br> {clinic.ClientsServed}</p>
+              <p><b>Services:</b><br></br> {clinic.Services}</p>
+              <p><b>Notes:</b><br></br> {clinic.Notes}</p>
+              <p><b>Link:</b><br></br> {clinic.Link}</p>
 
-            ))}
+            </Card>
 
-          </div>
+          ))}
 
 
-        ) : (
-            <h2 className="text-center">No food</h2>
-          )}
-      </div>
-    );
-  }
+        </div>
+
+
+      ) : (
+          <h2 className="text-center">No clinics</h2>
+        )}
+    </div>
+  );
+      
+}
 
 }
 
-export default Food;
+
+export default Clinic;

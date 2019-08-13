@@ -1,80 +1,94 @@
 import axios from "axios";
 
-var host=()=>{
+var host = () => {
   var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
 
-  return isLocalHost ?
-    "http://localhost:8080":
-    "https://intense-escarpment-74172.herokuapp.com";
+  return "https://sheltr-p3.herokuapp.com"
+  
+
 }
 
 export default {
-    
 
-  getFood: function(q) {
-      return axios.get(`${host()}/api/food`);
-    },
 
-  saveFoodToDatabase: function(foodData){
+  getFood: function (q) {
+    return axios.get(`${host()}/api/food`);
+  },
+
+  saveFoodToDatabase: function (foodData) {
     return axios.post(`${host()}/api/fooddatabase`, foodData);
   },
 
-  saveFoodToUser: function(foodData){
+  saveFoodToUser: function (foodData) {
     return axios.post(`${host()}/api/foodtouser`, foodData);
   },
-  
-  getFoodFromDatabase: function(foodData){
+
+  getFoodFromDatabase: function (foodData) {
     return axios.get(`${host()}/api/foodindatabase/` + foodData.foodData.location);
   },
-  
-  getFoodByUserId: function(id){
+
+  getFoodByUserId: function (id) {
     return axios.get(`${host()}/api/userfood/` + id);
   },
 
-  deleteFoodFromUser: function(food){
-    return axios.delete(`${host()}/api/deletefood/`+ food.userId+"/"+food.foodData.id);
+  deleteFoodFromUser: function (food) {
+    return axios.delete(`${host()}/api/deletefood/` + food.userId + "/" + food.foodData.id);
   },
 
 
 
-  getClinic: function() {
-    return axios.get(`${host()}/api/clinic`)
+  getClinic: function () {
+    return axios.get(`${host()}/api/clinics`)
   },
 
-  // // Gets books from the Google API
-  // getBooks: function(q) {
-  //   return axios.get("/api/google", { params: { q: "title:" + q } });
+  // saveClinicToUser: function (ClinicsData) {
+  //   return axios.post(`${host()}/api/Clinicstouser`, ClinicsData);
   // },
-  // // Gets all saved books
-  // getSavedBooks: function() {
-  //   return axios.get("/api/books");
+
+
+  // getClinicsByUserId: function (id) {
+  //   return axios.get(`${host()}/api/userClinics/` + id);
   // },
-  // // Deletes the saved book with the given id
-  // deleteBook: function(id) {
-  //   return axios.delete("/api/books/" + id);
+
+  // deleteClinicFromUser: function (Clinic) {
+
+  //   return axios.delete(`${host()}/api/deleteClinic/` + Clinic.userId + "/" + Clinic.clinicData.id);
   // },
-  // // Saves an book to the database
-  // saveBook: function(bookData) {
-  //   return axios.post("/api/books", bookData);
-  
-  getShelters: function(q) {
+  saveClinicsToDatabase: function (ClinicData) {
+    return axios.post(`${host()}/api/Clinicsdatabase`, ClinicData);
+  },
+
+  saveClinicsToUser: function (clinicData) {
+    return axios.post(`${host()}/api/clinictouser`, clinicData);
+  },
+  getClinicByUserId: function (id) {
+    return axios.get(`${host()}/api/userclinic/` + id);
+  },
+  deleteClinicFromUser: function (clinic) {
+    return axios.delete(`${host()}/api/deleteclinic/` + clinic.userId + "/" + clinic.clinicData.id);
+  },
+
+
+
+
+  getShelters: function (q) {
     return axios.get(`${host()}/api/Shelters`);
   },
 
-saveSheltersToDatabase: function(SheltersData){
-  return axios.post(`${host()}/api/Sheltersdatabase`, SheltersData);
-},
+  saveSheltersToDatabase: function (SheltersData) {
+    return axios.post(`${host()}/api/Sheltersdatabase`, SheltersData);
+  },
 
-saveSheltersToUser: function(SheltersData){
-  return axios.post(`${host()}/api/Shelterstouser`, SheltersData);
-},
+  saveSheltersToUser: function (SheltersData) {
+    return axios.post(`${host()}/api/Shelterstouser`, SheltersData);
+  },
 
+  getSheltersByUserId: function (id) {
+    return axios.get(`${host()}/api/userShelters/` + id);
+  },
 
-getSheltersByUserId: function(id){
-  return axios.get(`${host()}/api/userShelters/` + id);
-},
+  deleteShelterFromUser: function (Shelter) {
 
-deleteSheltersFromUser: function(Shelters){
-  return axios.delete(`${host()}/api/deleteShelters/`+ Shelters.userId+"/"+Shelters.SheltersData.id);
-},
-  };
+    return axios.delete(`${host()}/api/deleteShelter/` + Shelter.userId + "/" + Shelter.shelterData.id);
+  },
+};

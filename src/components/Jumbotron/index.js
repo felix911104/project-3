@@ -43,6 +43,7 @@ class Jumbotron extends Component {
     this.setState({
       userId: "-1"
     });
+    alert("You are signed out")
   };
 
   render() {
