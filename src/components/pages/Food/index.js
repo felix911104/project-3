@@ -6,7 +6,6 @@ import SaveBtn from "../../SaveBtn";
 import NavTabs from "../../Navbar/index";
 import "./style.css";
 import {Link} from "react-router-dom";
-import Footer from "../../Footer/index";
 class Food extends Component {
   state = {
     food: [],
@@ -72,8 +71,7 @@ class Food extends Component {
 
   render() {
     return (
-      <div>
-        <div className="container">
+        <div>
       <NavTabs />
         <h1 className="text-center">Food</h1>
         <h3 className="text-center">A list of Food Banks and more that offer low-cost or free food.
@@ -108,10 +106,10 @@ class Food extends Component {
         ) : (
             <h2 className="text-center">No food</h2>
           )}
-         </div>
-          <div><Footer/></div>
-
-      </div>
+          
+         
+          </div>
+      
 
     );
   }
