@@ -72,6 +72,18 @@ class Preferences extends Component {
       .catch(err => console.log(err));
   };
 
+  getClinics = (id) => {
+    this.setState({
+      userId: id
+    })
+    API.getClinicByUserId(id).then(res => {
+      this.setState({
+        clinics: res.data
+      })
+    })
+      .catch(err => console.log(err))
+  }
+
 
   deleteFoodFromUser = food => {
     API.deleteFoodFromUser(food).then(res => {
