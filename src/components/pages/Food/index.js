@@ -71,8 +71,10 @@ class Food extends Component {
   render() {
     let loggedIn = this.state.userId !== "-1";
     return (
+
       <div>
         <NavTabs />
+
         <h1 className="text-center">Food</h1>
         <h3 className="text-center">A list of Food Banks and more that offer low-cost or free food.
         </h3>
@@ -107,7 +109,11 @@ class Food extends Component {
         ) : (
             <h2 className="text-center">No food</h2>
           )}
-      </div>
+          
+         
+          </div>
+      
+
     );
   }
 
