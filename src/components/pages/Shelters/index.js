@@ -54,12 +54,13 @@ class Shelters extends Component {
 
 
   render() {
+    let loggedIn = this.state.userId !== "-1";
     return (
       <div>
         <NavTabs />
         <h1 className="text-center">Shelters</h1>
         <h3 className="text-center">A list of Shelters that offer services free services.</h3>
-        <h3 className="text-center mb-5">
+        <h3 className="text-center mb-5" hidden={loggedIn}>
           To save preferences for quick reference
         <Link to="/login"> Log-In </Link>
           or

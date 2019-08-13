@@ -76,7 +76,7 @@ class Food extends Component {
         <h1 className="text-center">Food</h1>
         <h3 className="text-center">A list of Food Banks and more that offer low-cost or free food.
         </h3>
-        <h3 className="text-center mb-5" hidden={!loggedIn}>
+        <h3 className="text-center mb-5" hidden={loggedIn}>
           To save preferences for quick reference
         <Link to="/login"> Log-In </Link>
           or
