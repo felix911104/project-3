@@ -16,9 +16,9 @@ const useStyles = makeStyles({
     hover: 1.0,
     marginBottom: "10px"
   },
-//   card:hover {
-//     opacity: 1.0,
-//   },
+  //   card:hover {
+  //     opacity: 1.0,
+  //   },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
@@ -45,7 +45,7 @@ export default function SimpleCard(props) {
           {/* put props here? Look at docs for material UI-react */}
         </Typography>
         <Typography className={classes.pos} color="black">
-         While Sheltr itself does not accept donations, there are plenty of local Seattle Charities, Food Banks, ect. that do accept and help local people.  Here are just a few we like.
+          While Sheltr itself does not accept donations, there are plenty of local Seattle Charities, Food Banks, ect. that do accept and help local people.  Here are just a few we like.
         </Typography>
         <Typography variant="body2" component="p">
           <br />

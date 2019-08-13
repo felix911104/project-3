@@ -16,18 +16,17 @@ class Clinic extends Component {
     this.getClinics()
 
   }
-  checkToken =() =>{
-    let userId=parseInt( localStorage.getItem("sheltrUserId"))
+  checkToken = () => {
+    let userId = parseInt(localStorage.getItem("sheltrUserId"))
     let expireTime = localStorage.getItem("sheltrExpireTime")
     expireTime = new Date(expireTime)
-    if(!userId){
+    if (!userId) {
       return
     }
-    else if(userId<0)
-    {
+    else if (userId < 0) {
       return
     }
-    else if(expireTime>new Date()){
+    else if (expireTime > new Date()) {
       this.setState({
         userId: userId
       })
@@ -47,21 +46,21 @@ class Clinic extends Component {
 
   saveClinicsToUser = (Clinic) => {
 
-        API.saveClinicToUser(Clinic).then(res => {
-          alert("Clinics saved ")
-        })
+    API.saveClinicToUser(Clinic).then(res => {
+      alert("Clinics saved ")
+    })
   }
 
 
   render() {
     return (
       <div>
-      <NavTabs />
+        <NavTabs />
         <h1 className="text-center">Clinics</h1>
         {this.state.clinics.length ? (
           <div>
-          {this.state.clinics.map((clinic, index) => (
-            <Card className="displaycards" title={index + 1} icon="download">
+            {this.state.clinics.map((clinic, index) => (
+              <Card className="displaycards" title={index + 1} icon="download">
                 <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveClinicsToUser({
                   userId: this.state.userId,
                   clinicData: clinic
@@ -70,7 +69,7 @@ class Clinic extends Component {
                 </div>
                 <p>Name: {clinic.Name}</p>
                 <p>Location: {clinic.Location}</p>
-                
+
               </Card>
 
             ))}

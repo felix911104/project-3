@@ -54,7 +54,7 @@ class Preferences extends Component {
       this.setState({
         shelters: res.data
       })
-    
+
     })
       .catch(err => console.log(err));
   };
@@ -67,7 +67,7 @@ class Preferences extends Component {
       this.setState({
         clinics: res.data
       })
-   
+
     })
       .catch(err => console.log(err));
   };
@@ -136,7 +136,7 @@ class Preferences extends Component {
         ) : (
             <h2 className="text-center">No shelters saved</h2>
           )}
-     
+
         {this.state.clinics.length ? (
           <div>
             {this.state.clinics.map((clinic, index) => (

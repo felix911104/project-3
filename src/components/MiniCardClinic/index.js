@@ -16,9 +16,9 @@ const useStyles = makeStyles({
     hover: 1.0,
     marginBottom: "10px"
   },
-//   card:hover {
-//     opacity: 1.0,
-//   },
+  //   card:hover {
+  //     opacity: 1.0,
+  //   },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',

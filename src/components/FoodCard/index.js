@@ -26,8 +26,8 @@ const useStyles = makeStyles(theme => ({
         color: "#5DADE2",
         backgroundImage: `url(${Background})`,
         width: "100%",
-        
-       
+
+
     },
 
     media: {
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
         height: '20vp',
         margin: '20px'
     },
-    
+
 }));
 
 export default function RecipeReviewCard() {
@@ -69,8 +69,8 @@ export default function RecipeReviewCard() {
     return (
         <div className={classes.cardwrapper}>
             <Card className={classes.card}>
-                <CardHeader 
-                
+                <CardHeader
+
                     title="About Us"
                     subheader="to see more please click the drop down"
                 />
@@ -92,7 +92,7 @@ export default function RecipeReviewCard() {
                         onClick={handleExpandClick}
                         aria-expanded={expanded}
                         aria-label="show more"
-        
+
                     >
                         <ExpandMoreIcon />
                     </IconButton>

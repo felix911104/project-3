@@ -65,8 +65,8 @@ export default function RecipeReviewCard() {
     return (
         <div className={classes.cardwrapper}>
             <Card className={classes.card}>
-                <CardHeader 
-                
+                <CardHeader
+
                     title="Donate"
                     subheader=""
                 />
