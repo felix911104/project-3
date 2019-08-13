@@ -43,6 +43,7 @@ class Jumbotron extends Component {
     this.setState({
       userId: "-1"
     });
+    alert("You are signed out")
   };
 
   render() {
@@ -53,7 +54,7 @@ class Jumbotron extends Component {
         <div id="cover">
           <div className="jumbotron jumbotron-fluid">
             <div className="btn-group rightHeader">
-              <LogoutBtn hidden={!loggedIn} onClick={() => this.logout()} />{" "}
+              <LogoutBtn hidden={!loggedIn} onClick={() => this.logout()} />
               <PreferencesBtn hidden={!loggedIn} />
               <LoginBtn hidden={loggedIn} /> <SignupBtn hidden={loggedIn} />
             </div>

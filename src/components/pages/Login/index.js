@@ -30,9 +30,14 @@ class LogIn extends Component {
       {
         ...prevState.newUser, [name]: value
       }
-    }), () => {})
+    }), () => { })
   }
 
+  host() {
+    var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
+
+    return "https://sheltr-p3.herokuapp.com";
+  }
 
   handleFormSubmit(e) {
     e.preventDefault();
@@ -45,19 +50,19 @@ class LogIn extends Component {
     }
     else {
       //send a GET request to login exisiting user
-      axios.get("https://intense-escarpment-74172.herokuapp.com/api/users/" + userData.name + "/" + userData.password).then(results => {
+      axios.get(`${this.host()}/api/users/` + userData.name + "/" + userData.password).then(results => {
         console.log(results.data);
         if (results.data.success) {
-          axios.get("https://intense-escarpment-74172.herokuapp.com/api/userbyname/"+userData.name).then(user=>{
-            console.log("123"+user.data.id)
+          axios.get(`${this.host()}/api/userbyname/` + userData.name).then(user => {
+            console.log("123" + user.data.id)
             localStorage.setItem("sheltrUserId", user.data.id);
             var tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             localStorage.setItem("sheltrExpireTime", tomorrow);
-            
-          })
-          this.props.history.push('/');
-          window.location.reload();
+
+            this.props.history.push('/');
+            window.location.reload();
+          });
         }
         else {
           alert("Invalid username or password, try again")
@@ -69,14 +74,14 @@ class LogIn extends Component {
     return (
       <div>
         <div className="container">
-        <h3 className="la">Hi, Dear!
+          <h3 className="la">Hi, Dear!
         Login Here <i class="fas fa-seedling"></i></h3>
           <div className="main">
-          <div className="logo">
-            <Link to="/"><h1>L</h1></Link>
-            
-          </div>
-          
+            <div className="logo">
+              <Link to="/"><h1>L</h1></Link>
+
+            </div>
+
             <form action="/" onSubmit={this.handleFormSubmit}>
               <input type="text" title="Username" name="name" value={this.state.newUser.name} placeholder="Enter a user name" onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-user" />
               <input type={"password"} title={"password"} name={"password"} value={this.state.newUser.password} placeholder={"enter a password"} onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-lock" />
@@ -85,7 +90,7 @@ class LogIn extends Component {
             </form>
           </div>
         </div>
-        <Footer/>
+        <Footer />
 
 
 

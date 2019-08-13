@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 function PreferencesBtn(props) {
   return (
     <Link to="/preferences">
-    <button className="btn btn-outline-primary" {...props}>Preferences</button>
-  </Link>
+      <button className="btn btn-outline-primary" {...props}>Preferences</button>
+    </Link>
   );
 }
 
