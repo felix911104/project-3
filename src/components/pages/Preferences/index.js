@@ -3,7 +3,7 @@ import API from "../../../utils/API";
 import Card from "../../Card";
 import DeleteBtn from "../../DeleteBtn";
 import NavTabs from "../../Navbar/index";
-
+import { Link } from "react-router-dom";
 
 class Preferences extends Component {
   state = {
@@ -104,11 +104,17 @@ class Preferences extends Component {
   };
 
   render() {
+    let loggedIn = this.state.userId !== "-1";
     return (
       <div>
         <NavTabs />
         <h1 className="text-center">Preferences</h1>
-     
+        <h3 className="text-center mb-5" hidden={loggedIn}>
+          To save preferences for quick reference
+        <Link to="/login"> Log-In </Link>
+          or
+        <Link to="/signup"> Sign-Up </Link>
+        </h3>
           {this.state.food.length || this.state.shelters.length || this.state.clinics.length ?
            (<p></p>): (<h4 className="text-center mt-5">Nothing Saved</h4>)}
     
