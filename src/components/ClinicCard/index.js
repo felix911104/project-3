@@ -17,7 +17,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MiniCard from '../MiniCard/index';
 import { minHeight, fontWeight } from '@material-ui/system';
-import Background from '../ClinicCard/clinic.jpg'
+import Background from '../ClinicCard/3.png'
 // import Clinic from "../pages/Clinic"
 import MiniClinicCard from '../MiniCardClinic/index'
 

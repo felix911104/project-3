@@ -18,7 +18,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MiniCard from '../MiniCard/index';
 import { minHeight } from '@material-ui/system';
 // import { url } from 'inspector';
-import Background from '../FoodCard/food3.jpg';
+import Background from '../FoodCard/1.png';
 const useStyles = makeStyles(theme => ({
     card: {
         textAlign: "center",
@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
         color: "#5DADE2",
         backgroundImage: `url(${Background})`,
         width: "100%",
+        fontSize: "50px",
 
 
     },
@@ -55,6 +56,11 @@ const useStyles = makeStyles(theme => ({
         height: '20vp',
         margin: '20px'
     },
+    CardHeader: {
+        fontSize: "80px",
+        fontWeight: "bolder",
+    }
+    
 
 }));
 
@@ -72,7 +78,7 @@ export default function RecipeReviewCard() {
                 <CardHeader
 
                     title="About Us"
-                    subheader="to see more please click the drop down"
+                    subheader=""
                 />
                 {/* <CardMedia
                     className={classes.media}

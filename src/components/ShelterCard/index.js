@@ -17,7 +17,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MiniCard from '../MiniCard/index';
 import { minHeight } from '@material-ui/system';
-import Background from '../ShelterCard/shelter.jpg'
+import Background from '../ShelterCard/3.png'
 import MiniShelterCard from "../MiniShelterCard/index";
 import DonationsCard from "../DonationsCard/index"
 const useStyles = makeStyles(theme => ({
