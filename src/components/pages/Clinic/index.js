@@ -5,15 +5,15 @@ import SaveBtn from "../../SaveBtn";
 // import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
 // import "./style.css";
-class Food extends Component {
+class Clinic extends Component {
   state = {
-    food: [],
+    clinics: [],
     userId: "-1"
   };
 
   componentDidMount() {
-    this.getFood()
     this.checkToken()
+    this.getClinics()
 
   }
   checkToken =() =>{
@@ -35,36 +35,21 @@ class Food extends Component {
     }
   }
 
-  getFood = () => {
-    API.getFood().then(res => {
+  getClinics = () => {
+    API.getClinic().then(res => {
+      console.log(res)
       this.setState({
-        food: res.data.data
+        clinics: res.data
       })
     })
       .catch(err => console.log(err));
   }
 
-  saveFoodToDatabase = (food) => {
-    console.log("123321")
-    console.log(this.state.userId)
-    API.getFoodFromDatabase(food).then(foodInfo => {
-      console.log(foodInfo.data)
-      foodInfo.data ? (
+  saveClinicsToUser = (Clinic) => {
 
-        API.saveFoodToUser(food).then(res => {
-          alert("food saved ")
+        API.saveClinicToUser(Clinic).then(res => {
+          alert("Clinics saved ")
         })
-      ) : (
-        API.saveFoodToDatabase(food).then(res => {
-          
-            console.log("food saved to database")
-            API.saveFoodToUser(food).then(res => {
-              alert("food saved ")
-            })
-          })
-        )
-
-    })
   }
 
 
@@ -72,22 +57,20 @@ class Food extends Component {
     return (
       <div>
       <NavTabs />
-        <h1 className="text-center">Food</h1>
-        {this.state.food.length ? (
+        <h1 className="text-center">Clinics</h1>
+        {this.state.clinics.length ? (
           <div>
-          {this.state.food.map((food, index) => (
+          {this.state.clinics.map((clinic, index) => (
             <Card className="displaycards" title={index + 1} icon="download">
-                <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
+                <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveClinicsToUser({
                   userId: this.state.userId,
-                  foodData: food
+                  clinicData: clinic
                 }
                 )} />) : (<p></p>)}
                 </div>
-                <p>Program Name: {food.name_of_program}</p>
-                <p>Time: {food.day_time}</p>
-                <p>Meal Served: {food.meal_served}</p>
-                <p>People: {food.people_served}</p>
-                <p>Locaton: {food.location}</p>
+                <p>Name: {clinic.Name}</p>
+                <p>Location: {clinic.Location}</p>
+                
               </Card>
 
             ))}
@@ -96,7 +79,7 @@ class Food extends Component {
 
 
         ) : (
-            <h2 className="text-center">No food</h2>
+            <h2 className="text-center">No clinics</h2>
           )}
       </div>
     );
@@ -104,4 +87,4 @@ class Food extends Component {
 
 }
 
-export default Food;
+export default Clinic;
