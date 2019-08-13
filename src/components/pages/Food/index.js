@@ -73,6 +73,7 @@ class Food extends Component {
   render() {
     return (
       <div>
+        <div className="container">
       <NavTabs />
         <h1 className="text-center">Food</h1>
         <h3 className="text-center">A list of Food Banks and more that offer low-cost or free food.
@@ -107,8 +108,11 @@ class Food extends Component {
         ) : (
             <h2 className="text-center">No food</h2>
           )}
-         
+         </div>
+          <div><Footer/></div>
+
       </div>
+
     );
   }
 
