@@ -4,7 +4,7 @@ var host = () => {
   var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
 
   return isLocalHost ?
-    "https://sheltr-p3.herokuapp.com":
+    "https://sheltr-p3.herokuapp.com" :
     "https://sheltr-p3.herokuapp.com";
 }
 
