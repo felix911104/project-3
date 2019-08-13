@@ -69,12 +69,14 @@ class Food extends Component {
 
 
   render() {
+    let loggedIn = this.state.userId !== "-1";
     return (
       <div>
         <NavTabs />
         <h1 className="text-center">Food</h1>
         <h3 className="text-center">A list of Food Banks and more that offer low-cost or free food.
-        <br></br>
+        </h3>
+        <h3 className="text-center mb-5" hidden={!loggedIn}>
           To save preferences for quick reference
         <Link to="/login"> Log-In </Link>
           or

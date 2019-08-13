@@ -5,6 +5,7 @@ import SaveBtn from "../../SaveBtn";
 // import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
 // import "./style.css";
+import { Link } from "react-router-dom";
 class Shelters extends Component {
   state = {
     shelters: [],
@@ -57,6 +58,13 @@ class Shelters extends Component {
       <div>
         <NavTabs />
         <h1 className="text-center">Shelters</h1>
+        <h3 className="text-center">A list of Shelters that offer services free services.</h3>
+        <h3 className="text-center mb-5">
+          To save preferences for quick reference
+        <Link to="/login"> Log-In </Link>
+          or
+        <Link to="/signup"> Sign-Up </Link>
+        </h3>
         {this.state.shelters.length ? (
           <div>
             {this.state.shelters.map((shelter, index) => (
@@ -86,7 +94,7 @@ class Shelters extends Component {
 
 
         ) : (
-            <h2 className="text-center">No shelters</h2>
+            <h2 className="text-center mt-5">No shelters</h2>
           )}
       </div>
     );
