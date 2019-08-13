@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 function NavTabs() {
   return (
-    <div className="btn-group jumbotron-fluid">
+    <div className="btn-group jumbotron-fluid nav">
         <Link to="/">
           <button className="btn btn-outline-primary">Home</button>
         </Link>
