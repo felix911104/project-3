@@ -14,9 +14,9 @@ const useStyles = makeStyles({
     opacity: 0.9,
     hover: 1.0
   },
-//   card:hover {
-//     opacity: 1.0,
-//   },
+  //   card:hover {
+  //     opacity: 1.0,
+  //   },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
@@ -38,13 +38,13 @@ export default function SimpleCard() {
     <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="black" gutterBottom>
-            Sheltr is a web application geared towards helping low-income and homeless people.  It was created by four web development students, who wished to help anyone that needed it.
+          Sheltr is a web application geared towards helping low-income and homeless people.  It was created by four web development students, who wished to help anyone that needed it.
         </Typography>
         <Typography variant="h5" component="h2">
 
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          
+
         </Typography>
         <Typography variant="body2" component="p">
           <br />

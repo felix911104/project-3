@@ -5,29 +5,29 @@ import SaveBtn from "../../SaveBtn";
 // import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
 // import "./style.css";
-class Food extends Component {
+import { Link } from "react-router-dom";
+class Shelters extends Component {
   state = {
-    food: [],
+    shelters: [],
     userId: "-1"
   };
 
   componentDidMount() {
-    this.getFood()
     this.checkToken()
+    this.getShelters()
 
   }
-  checkToken =() =>{
-    let userId=parseInt( localStorage.getItem("sheltrUserId"))
+  checkToken = () => {
+    let userId = parseInt(localStorage.getItem("sheltrUserId"))
     let expireTime = localStorage.getItem("sheltrExpireTime")
     expireTime = new Date(expireTime)
-    if(!userId){
+    if (!userId) {
       return
     }
-    else if(userId<0)
-    {
+    else if (userId < 0) {
       return
     }
-    else if(expireTime>new Date()){
+    else if (expireTime > new Date()) {
       this.setState({
         userId: userId
       })
@@ -35,35 +35,20 @@ class Food extends Component {
     }
   }
 
-  getFood = () => {
-    API.getFood().then(res => {
+  getShelters = () => {
+    API.getShelters().then(res => {
+      console.log(res)
       this.setState({
-        food: res.data.data
+        shelters: res.data
       })
     })
       .catch(err => console.log(err));
   }
 
-  saveFoodToDatabase = (food) => {
-    console.log("123321")
-    console.log(this.state.userId)
-    API.getFoodFromDatabase(food).then(foodInfo => {
-      console.log(foodInfo.data)
-      foodInfo.data ? (
+  saveSheltersToUser = (shelter) => {
 
-        API.saveFoodToUser(food).then(res => {
-          alert("food saved ")
-        })
-      ) : (
-        API.saveFoodToDatabase(food).then(res => {
-          
-            console.log("food saved to database")
-            API.saveFoodToUser(food).then(res => {
-              alert("food saved ")
-            })
-          })
-        )
-
+    API.saveSheltersToUser(shelter).then(res => {
+      alert("Shelters saved ")
     })
   }
 
@@ -71,23 +56,36 @@ class Food extends Component {
   render() {
     return (
       <div>
-      <NavTabs />
-        <h1 className="text-center">Food</h1>
-        {this.state.food.length ? (
+        <NavTabs />
+        <h1 className="text-center">Shelters</h1>
+        <h3 className="text-center">A list of Shelters that offer services free services.</h3>
+        <h3 className="text-center mb-5">
+          To save preferences for quick reference
+        <Link to="/login"> Log-In </Link>
+          or
+        <Link to="/signup"> Sign-Up </Link>
+        </h3>
+        {this.state.shelters.length ? (
           <div>
-          {this.state.food.map((food, index) => (
-            <Card className="displaycards" title={index + 1} icon="download">
-                <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
+            {this.state.shelters.map((shelter, index) => (
+              <Card className="displaycards" title={index + 1} icon="download">
+                <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveSheltersToUser({
                   userId: this.state.userId,
-                  foodData: food
+                  shelterData: shelter
                 }
                 )} />) : (<p></p>)}
                 </div>
-                <p>Program Name: {food.name_of_program}</p>
-                <p>Time: {food.day_time}</p>
-                <p>Meal Served: {food.meal_served}</p>
-                <p>People: {food.people_served}</p>
-                <p>Locaton: {food.location}</p>
+
+                <p><b>Name:</b><br></br> {shelter.Name}</p>
+                <p><b>Location:</b><br></br> {shelter.Location}</p>
+                <p><b>Hours:</b><br></br> {shelter.DaysOfOperation}</p>
+                <p><b>Phone Number:</b><br></br> {shelter.PhoneNumber}</p>
+                <p><b>Clients Served:</b><br></br> {shelter.ClientsServed}</p>
+                <p><b>Services:</b><br></br> {shelter.Services}</p>
+                <p><b>Notes:</b><br></br> {shelter.Notes}</p>
+                <p><b>Link:</b><br></br> {shelter.Link}</p>
+                
+
               </Card>
 
             ))}
@@ -96,7 +94,7 @@ class Food extends Component {
 
 
         ) : (
-            <h2 className="text-center">No food</h2>
+            <h2 className="text-center mt-5">No shelters</h2>
           )}
       </div>
     );
@@ -104,4 +102,4 @@ class Food extends Component {
 
 }
 
-export default Food;
+export default Shelters;

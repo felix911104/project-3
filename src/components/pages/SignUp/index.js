@@ -35,6 +35,11 @@ class SignUp extends Component {
     }), () => console.log(this.state.newUser))
   }
 
+  host() {
+    var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
+
+    return "https://sheltr-p3.herokuapp.com";
+  }
 
   handleFormSubmit(e) {
     e.preventDefault();
@@ -48,7 +53,7 @@ class SignUp extends Component {
     else {
       axios({
         method: 'post',
-        url: "https://intense-escarpment-74172.herokuapp.com/api/users/",
+        url: `${this.host()}/api/users/`,
         data: {
           name: userData.name,
           password: userData.password
@@ -74,10 +79,10 @@ class SignUp extends Component {
         <div className="container">
           <h3 className="la">Hi, Dear!
         Sign Up Here <i class="fas fa-seedling"></i></h3>
-        <div className="main">
-          
+          <div className="main">
+
             <div className="logo">
-            <Link to="/"><h1>S</h1></Link>
+              <Link to="/"><h1>S</h1></Link>
             </div>
             <form action="/" onSubmit={this.handleFormSubmit}>
               <input type="text" title="Username" name="name" value={this.state.newUser.name} placeholder="Enter a user name" onChange={this.handleInput} autoComplete="off" required />	<i className="fa fa-user" />
@@ -87,7 +92,7 @@ class SignUp extends Component {
             </form>
           </div>
         </div>
-        <Footer/>
+        <Footer />
 
 
 

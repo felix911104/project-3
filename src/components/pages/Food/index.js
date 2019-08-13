@@ -5,7 +5,7 @@ import SaveBtn from "../../SaveBtn";
 // import { List } from "../../List";
 import NavTabs from "../../Navbar/index";
 import "./style.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 class Food extends Component {
   state = {
     food: [],
@@ -17,18 +17,17 @@ class Food extends Component {
     this.checkToken()
 
   }
-  checkToken =() =>{
-    let userId=parseInt( localStorage.getItem("sheltrUserId"))
+  checkToken = () => {
+    let userId = parseInt(localStorage.getItem("sheltrUserId"))
     let expireTime = localStorage.getItem("sheltrExpireTime")
     expireTime = new Date(expireTime)
-    if(!userId){
+    if (!userId) {
       return
     }
-    else if(userId<0)
-    {
+    else if (userId < 0) {
       return
     }
-    else if(expireTime>new Date()){
+    else if (expireTime > new Date()) {
       this.setState({
         userId: userId
       })
@@ -56,8 +55,8 @@ class Food extends Component {
           alert("food saved ")
         })
       ) : (
-        API.saveFoodToDatabase(food).then(res => {
-          
+          API.saveFoodToDatabase(food).then(res => {
+
             console.log("food saved to database")
             API.saveFoodToUser(food).then(res => {
               alert("food saved ")
@@ -70,21 +69,23 @@ class Food extends Component {
 
 
   render() {
+    let loggedIn = this.state.userId !== "-1";
     return (
       <div>
-      <NavTabs />
+        <NavTabs />
         <h1 className="text-center">Food</h1>
         <h3 className="text-center">A list of Food Banks and more that offer low-cost or free food.
-        <br></br>
-        To save preferences for quick reference 
+        </h3>
+        <h3 className="text-center mb-5" hidden={!loggedIn}>
+          To save preferences for quick reference
         <Link to="/login"> Log-In </Link>
-        or
+          or
         <Link to="/signup"> Sign-Up </Link>
         </h3>
         {this.state.food.length ? (
           <div>
-          {this.state.food.map((food, index) => (
-            <Card className="displaycards" title={index + 1} icon="download">
+            {this.state.food.map((food, index) => (
+              <Card className="displaycards" title={index + 1} icon="download">
                 <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveFoodToDatabase({
                   userId: this.state.userId,
                   foodData: food

@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 function LoginBtn(props) {
   return (
     <Link to="/login">
-    <button className="btn btn-outline-primary" {...props}>Login</button>
-  </Link>
+      <button className="btn btn-outline-primary" {...props}>Login</button>
+    </Link>
   );
 }
 

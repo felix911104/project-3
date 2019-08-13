@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     card: {
         textAlign: "center",
         backgroundColor: "#1d1d1d",
-        color: "black",
+        color: "#2980B9",
         backgroundImage: `url(${Background})`,
     },
     media: {
@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
         transition: theme.transitions.create('transform', {
             duration: theme.transitions.duration.shortest,
         }),
+        color: "#2980B9"
     },
     expandOpen: {
         transform: 'rotate(180deg)',
@@ -64,8 +65,8 @@ export default function RecipeReviewCard() {
     return (
         <div className={classes.cardwrapper}>
             <Card className={classes.card}>
-                <CardHeader 
-                
+                <CardHeader
+
                     title="Donate"
                     subheader=""
                 />

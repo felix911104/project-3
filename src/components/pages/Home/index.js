@@ -7,11 +7,11 @@ import Footer from "../../Footer/index"
 function Home() {
   return (
     <div>
-      <Jumbotron/>
-      <FoodCard/>
-      <ClinicCard/>
-      <ShelterCard/>
-      <Footer/>
+      <Jumbotron />
+      <FoodCard />
+      <ClinicCard />
+      <ShelterCard />
+      <Footer />
     </div>
   );
 }
