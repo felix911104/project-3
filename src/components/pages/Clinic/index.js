@@ -46,10 +46,13 @@ class Clinic extends Component {
 
   saveClinicsToUser = (clinic) => {
 
+
     API.saveClinicsToUser(clinic).then(res => {
+
       alert("Clinics saved ")
     })
   }
+
 
 
 
@@ -82,6 +85,7 @@ render() {
             </Card>
 
           ))}
+
 
         </div>
 

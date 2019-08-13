@@ -6,9 +6,9 @@ import React from "react";
 // That way we don't have to define them all individually
 function LogoutBtn(props) {
   return (
-    
+
     <button className="btn btn-outline-primary" {...props}>Logout</button>
-  
+
   );
 }
 

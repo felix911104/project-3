@@ -70,8 +70,8 @@ export default function RecipeReviewCard() {
     return (
         <div className={classes.cardwrapper}>
             <Card className={classes.card}>
-                <CardHeader 
-                
+                <CardHeader
+
                     title="Our Mission"
                     subheader=""
                 />
@@ -99,9 +99,9 @@ export default function RecipeReviewCard() {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        
-                        < MiniClinicCard/>
-                
+
+                        < MiniClinicCard />
+
                     </CardContent>
                 </Collapse>
             </Card>

@@ -16,18 +16,17 @@ class Shelters extends Component {
     this.getShelters()
 
   }
-  checkToken =() =>{
-    let userId=parseInt( localStorage.getItem("sheltrUserId"))
+  checkToken = () => {
+    let userId = parseInt(localStorage.getItem("sheltrUserId"))
     let expireTime = localStorage.getItem("sheltrExpireTime")
     expireTime = new Date(expireTime)
-    if(!userId){
+    if (!userId) {
       return
     }
-    else if(userId<0)
-    {
+    else if (userId < 0) {
       return
     }
-    else if(expireTime>new Date()){
+    else if (expireTime > new Date()) {
       this.setState({
         userId: userId
       })
@@ -47,27 +46,28 @@ class Shelters extends Component {
 
   saveSheltersToUser = (shelter) => {
 
-        API.saveSheltersToUser(shelter).then(res => {
-          alert("Shelters saved ")
-        })
+    API.saveSheltersToUser(shelter).then(res => {
+      alert("Shelters saved ")
+    })
   }
 
 
   render() {
     return (
       <div>
-      <NavTabs />
+        <NavTabs />
         <h1 className="text-center">Shelters</h1>
         {this.state.shelters.length ? (
           <div>
-          {this.state.shelters.map((shelter, index) => (
-            <Card className="displaycards" title={index + 1} icon="download">
+            {this.state.shelters.map((shelter, index) => (
+              <Card className="displaycards" title={index + 1} icon="download">
                 <div className="Card-Header">{(this.state.userId !== "-1") ? (<SaveBtn onClick={() => this.saveSheltersToUser({
                   userId: this.state.userId,
                   shelterData: shelter
                 }
                 )} />) : (<p></p>)}
                 </div>
+
                 <p><b>Name:</b><br></br> {shelter.Name}</p>
                 <p><b>Location:</b><br></br> {shelter.Location}</p>
                 <p><b>Hours:</b><br></br> {shelter.DaysOfOperation}</p>
@@ -77,6 +77,7 @@ class Shelters extends Component {
                 <p><b>Notes:</b><br></br> {shelter.Notes}</p>
                 <p><b>Link:</b><br></br> {shelter.Link}</p>
                 
+
               </Card>
 
             ))}
