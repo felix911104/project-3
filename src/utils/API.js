@@ -4,8 +4,8 @@ var host = () => {
   var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
 
   return isLocalHost ?
-    "http://localhost:8080" :
-    "https://intense-escarpment-74172.herokuapp.com";
+    "http://localhost:8080":
+    "https://sheltr-p3.herokuapp.com";
 }
 
 export default {
@@ -54,6 +54,24 @@ export default {
 
     return axios.delete(`${host()}/api/deleteClinic/` + Clinic.userId + "/" + Clinic.clinicData.id);
   },
+  getClinicByUserId: function (id) {
+    return axios.get(`${host()}/api/userclinic/` + id);
+  },
+  deleteClinicFromUser: function (clinic) {
+    return axios.delete(`${host()}/api/deleteclinic/` + clinic.userId + "/" + clinic.clinicData.id);
+  },
+
+
+
+  // getClinicsByUserId: function (id) {
+  //   return axios.get(`${host()}/api/userClinics/` + id);
+  // },
+
+  // deleteClinicsFromUser: function (Clinics) {
+  //   return axios.delete(`${host()}/api/deleteClinics/` + Clinics.userId + "/" + Clinics.ClinicsData.id);
+  // },
+
+
 
   // // Gets books from the Google API
   // getBooks: function(q) {
@@ -75,11 +93,13 @@ export default {
     return axios.get(`${host()}/api/Shelters`);
   },
 
+  saveSheltersToDatabase: function (SheltersData) {
+    return axios.post(`${host()}/api/Sheltersdatabase`, SheltersData);
+  },
 
   saveSheltersToUser: function (SheltersData) {
     return axios.post(`${host()}/api/Shelterstouser`, SheltersData);
   },
-
 
   getSheltersByUserId: function (id) {
     return axios.get(`${host()}/api/userShelters/` + id);
