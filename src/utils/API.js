@@ -40,8 +40,19 @@ export default {
   getClinic: function () {
     return axios.get(`${host()}/api/clinics`)
   },
-  saveClinicsToDatabase: function (clinicData) {
-    return axios.post(`${host()}/api/clinicdatabase`, clinicData);
+
+  saveClinicToUser: function (ClinicsData) {
+    return axios.post(`${host()}/api/Clinicstouser`, ClinicsData);
+  },
+
+
+  getClinicsByUserId: function (id) {
+    return axios.get(`${host()}/api/userClinics/` + id);
+  },
+
+  deleteClinicFromUser: function (Clinic) {
+
+    return axios.delete(`${host()}/api/deleteClinic/` + Clinic.userId + "/" + Clinic.clinicData.id);
   },
   getClinicByUserId: function (id) {
     return axios.get(`${host()}/api/userclinic/` + id);
@@ -90,12 +101,12 @@ export default {
     return axios.post(`${host()}/api/Shelterstouser`, SheltersData);
   },
 
-
   getSheltersByUserId: function (id) {
     return axios.get(`${host()}/api/userShelters/` + id);
   },
 
-  deleteSheltersFromUser: function (Shelters) {
-    return axios.delete(`${host()}/api/deleteShelters/` + Shelters.userId + "/" + Shelters.SheltersData.id);
+  deleteShelterFromUser: function (Shelter) {
+
+    return axios.delete(`${host()}/api/deleteShelter/` + Shelter.userId + "/" + Shelter.shelterData.id);
   },
 };
