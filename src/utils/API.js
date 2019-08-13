@@ -4,8 +4,10 @@ var host = () => {
   var isLocalHost = window.location && window.location.host && window.location.host.indexOf('localhost') >= 0;
 
   return isLocalHost ?
-    "https://sheltr-p3.herokuapp.com" :
-    "https://sheltr-p3.herokuapp.com";
+
+  "http://localhost:8080":
+  "https://sheltr-p3.herokuapp.com"
+
 }
 
 export default {
@@ -41,18 +43,25 @@ export default {
     return axios.get(`${host()}/api/clinics`)
   },
 
-  saveClinicToUser: function (ClinicsData) {
-    return axios.post(`${host()}/api/Clinicstouser`, ClinicsData);
+  // saveClinicToUser: function (ClinicsData) {
+  //   return axios.post(`${host()}/api/Clinicstouser`, ClinicsData);
+  // },
+
+
+  // getClinicsByUserId: function (id) {
+  //   return axios.get(`${host()}/api/userClinics/` + id);
+  // },
+
+  // deleteClinicFromUser: function (Clinic) {
+
+  //   return axios.delete(`${host()}/api/deleteClinic/` + Clinic.userId + "/" + Clinic.clinicData.id);
+  // },
+  saveClinicsToDatabase: function (ClinicData) {
+    return axios.post(`${host()}/api/Clinicsdatabase`, ClinicData);
   },
 
-
-  getClinicsByUserId: function (id) {
-    return axios.get(`${host()}/api/userClinics/` + id);
-  },
-
-  deleteClinicFromUser: function (Clinic) {
-
-    return axios.delete(`${host()}/api/deleteClinic/` + Clinic.userId + "/" + Clinic.clinicData.id);
+  saveClinicsToUser: function (clinicData) {
+    return axios.post(`${host()}/api/clinictouser`, clinicData);
   },
   getClinicByUserId: function (id) {
     return axios.get(`${host()}/api/userclinic/` + id);
@@ -63,31 +72,6 @@ export default {
 
 
 
-  // getClinicsByUserId: function (id) {
-  //   return axios.get(`${host()}/api/userClinics/` + id);
-  // },
-
-  // deleteClinicsFromUser: function (Clinics) {
-  //   return axios.delete(`${host()}/api/deleteClinics/` + Clinics.userId + "/" + Clinics.ClinicsData.id);
-  // },
-
-
-
-  // // Gets books from the Google API
-  // getBooks: function(q) {
-  //   return axios.get("/api/google", { params: { q: "title:" + q } });
-  // },
-  // // Gets all saved books
-  // getSavedBooks: function() {
-  //   return axios.get("/api/books");
-  // },
-  // // Deletes the saved book with the given id
-  // deleteBook: function(id) {
-  //   return axios.delete("/api/books/" + id);
-  // },
-  // // Saves an book to the database
-  // saveBook: function(bookData) {
-  //   return axios.post("/api/books", bookData);
 
   getShelters: function (q) {
     return axios.get(`${host()}/api/Shelters`);
