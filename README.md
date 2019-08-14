@@ -7,8 +7,11 @@ Live Heroku Link: https://felix911104.github.io/project-3/
 
 ### Collaborators
 https://github.com/felix911104
+<br>
 https://github.com/aminkus
+<br>
 https://github.com/weiminyang
+<br>
 https://github.com/RedChampion
 
 ### Purpose and Usefulness
