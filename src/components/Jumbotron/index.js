@@ -60,20 +60,20 @@ class Jumbotron extends Component {
             </div>
             <div className="btn-group leftHeader">
               <Link to="/">
-                <button className="btn btn-outline-primary">Home</button>
+                <button className="btn btn-outline-primary"> <i class="fas fa-home"></i> Home</button>
               </Link>
               {/* <Link to="/preferences">
 
                             <button className="btn btn-outline-primary">Preferences</button>
                         </Link> */}
               <Link to="/food">
-                <button className="btn btn-outline-primary">Food</button>
+                <button className="btn btn-outline-primary"> <i class="fas fa-hamburger"></i> Food</button>
               </Link>
               <Link to="/shelters">
-                <button className="btn btn-outline-primary">Shelters</button>
+                <button className="btn btn-outline-primary"> <i class="fas fa-bed"></i> Shelters</button>
               </Link>
               <Link to="/clinics">
-                <button className="btn btn-outline-primary">Clinics</button>
+                <button className="btn btn-outline-primary"> <i class="fas fa-clinic-medical"></i> Clinics</button>
               </Link>
             </div>
             <div className="container">
