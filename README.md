@@ -1,8 +1,5 @@
 ![](./public/img/sheltr.jpg)
 
-A compatibility-based "FriendFinder" application that matches users with other people who have filled out the FriendFinder survey similarly.
-
-
 ### Live Version and Repository
 Github Repository: https://github.com/felix911104/project-3
 
