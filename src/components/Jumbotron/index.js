@@ -84,7 +84,7 @@ class Jumbotron extends Component {
               >
                 Shelt<strong style={{ fontWeight: 600 }}>R</strong>
               </h1>
-              <p className="lead string-1 text-center" />
+              <p className="lead string-1 text-center">A website dedicated to helping people in the Seattle area.</p> 
             </div>
           </div>
         </div>

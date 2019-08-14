@@ -8,10 +8,10 @@ function Home() {
   return (
     <div>
       <Jumbotron />
-      <div className="container">
+      
       <FoodCard />
       <ClinicCard />
-      <ShelterCard /></div>
+      <ShelterCard />
       <Footer />
     </div>
   );
